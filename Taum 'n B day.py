@@ -4,6 +4,9 @@ def taumBday(b, w, bc, wc, z):
     # bc = prijs van b
     # wc = prijs van w
     # z = kosten van w naar b en andersom
+    if bc == wc or z > bc or z > wc:
+        return b * bc + w * wc
+
 
 
 
