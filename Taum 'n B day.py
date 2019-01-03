@@ -4,14 +4,7 @@ def taumBday(b, w, bc, wc, z):
     # bc = prijs van b
     # wc = prijs van w
     # z = kosten van w naar b en andersom
-    if bc == wc or z > bc or z > wc:
-        return b * bc + w * wc
-    elif bc > wc + z:
-        return b*(wc+z) + w*wc
-    elif wc> bc + z:
-        return b*bc + w*(bc+z)
-
-
+    return b * min(bc, wc + z) + w * min(wc, bc + z)
 
 
 if __name__ == '__main__':
