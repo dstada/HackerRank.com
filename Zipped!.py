@@ -1,8 +1,26 @@
 n, x = map(int, input().split())
-for i in range(n):
+results = []
+for _ in range(x):      # Voor elke student doen:
+    results.append(list(map(float, input().split())))
 
+res2 = list(zip(*results))
+for one in res2:
+    print(sum(one)/len(one))
 
 """
+input:
+5 3
+89 90 78 93 80
+90 91 85 88 86  
+91 92 83 89 90.5
+
+output:
+90.0 
+91.0 
+82.0 
+90.0 
+85.5  
+
 >>> print zip([1,2,3,4,5,6],'Hacker')
 [(1, 'H'), (2, 'a'), (3, 'c'), (4, 'k'), (5, 'e'), (6, 'r')]
 >>> 
