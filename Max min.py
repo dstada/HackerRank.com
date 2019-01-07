@@ -19,6 +19,7 @@ if __name__ == '__main__':
     print(result)
 
 """
+https://www.hackerrank.com/challenges/angry-children/problem
 10
 4
 1
