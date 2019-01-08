@@ -14,3 +14,4 @@ if __name__ == '__main__':
         arr.append(arr_item)
 
     result = maxMin(k, arr)
+    print(result)
