@@ -1,10 +1,14 @@
 def maxMin(k, arr):
     arr = sorted(arr)
-    unfairs = []
-    for i in range(0, len(arr) -k + 1):
-        temp_list = arr[i:i+k]
-        unfairs.append(max(temp_list) - min(temp_list))
-    return min(unfairs)
+    print(arr)
+    minst = max(arr)
+    while minst != 0:
+        for i in range(0, len(arr) - k + 1):
+            unfair = arr[i+k-1] - arr[i]
+            print(unfair)
+            if unfair < minst:
+                minst = unfair
+        return minst
 
 
 if __name__ == '__main__':
