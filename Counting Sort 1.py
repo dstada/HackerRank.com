@@ -2,7 +2,7 @@ def countingSort(arr):
     cijferlijst = [0 for i in range(100)]
     for cijfer in arr:
         cijferlijst[cijfer] += 1
-    print(cijferlijst)
+    return cijferlijst
 
 
 if __name__ == '__main__':
