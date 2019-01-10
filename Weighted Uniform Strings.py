@@ -3,11 +3,12 @@ def weightedUniformStrings(s, queries):
     for i in range(len(s)):
         scores.append(ord(s[i]) - 96)
         teller = 1
-        while i + teller != len(s) and s[i] == :
+        while i + teller != len(s) and s[i] == s[i+teller]:
             print("Nog eentje")
             teller += 1
         else:
             print("Niet nog meer dezelfde.")
+            teller = 1
             break
 
     print(scores)
