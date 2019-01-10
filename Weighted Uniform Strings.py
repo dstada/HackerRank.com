@@ -1,22 +1,16 @@
 def weightedUniformStrings(s, queries):
     teller = 1
     vorige = ''
-    gewichten = []
+    gewichten = set()
     for c in s:     # Voor elke letter uit s:
         if c != vorige:
             teller = 1
             vorige = c
-            gewichten.append(ord(c) - 96)
+            gewichten.add(ord(c) - 96)
         else:
             teller += 1
-            gewichten.append(teller * (ord(c) - 96))
-
-    print(gewichten)
-    for q in queries:
-        if q in s:
-            return "Yes"
-        else:
-            return "No"
+            gewichten.add(teller * (ord(c) - 96))
+    return ['Yes' if q in gewichten else 'No' for q in queries]
 
 
 if __name__ == '__main__':
@@ -49,4 +43,20 @@ Yes
 Yes
 No
 No
+
+def weightedUniformStrings(s, queries):
+    teller = 1
+    vorige = ''
+    gewichten = []
+    for c in s:     # Voor elke letter uit s:
+        if c != vorige:
+            teller = 1
+            vorige = c
+            gewichten.append(ord(c) - 96)
+        else:
+            teller += 1
+            gewichten.append(teller * (ord(c) - 96))
+
+    return ['Yes' if q in gewichten else 'No' for q in queries]
+
 """
