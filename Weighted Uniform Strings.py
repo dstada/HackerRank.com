@@ -1,13 +1,15 @@
 def weightedUniformStrings(s, queries):
-    scores = set()
-    ctr = 1
+    scores = []
     for i in range(len(s)):
-        score = ord(s[i]) - 96
-        if i + 1 != len(s) and s[i + 1] == s[i]:
-            ctr = ctr + 1
+        scores.append(ord(s[i]) - 96)
+        teller = 1
+        while i + teller != len(s) and s[i] == :
+            print("Nog eentje")
+            teller += 1
         else:
-            1
-        scores.add(score * ctr)
+            print("Niet nog meer dezelfde.")
+            break
+
     print(scores)
 
 
@@ -43,4 +45,16 @@ Yes
 Yes
 No
 No
+
+def weightedUniformStrings(s, queries):
+    scores = set()
+    ctr = 1
+    for i in range(len(s)):
+        score = ord(s[i]) - 96
+        if i + 1 != len(s) and s[i + 1] == s[i]:
+            ctr = ctr + 1
+        else:
+            1
+        scores.add(score * ctr)
+    print(scores)
 """
