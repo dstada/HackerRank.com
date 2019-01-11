@@ -1,5 +1,6 @@
 def separateNumbers(s):
-
+    # Neem 1e cijfer en stop in onthoud:
+    for cijfer in s:
 
 
 
@@ -13,7 +14,6 @@ if __name__ == '__main__':
 
 """
 https://www.hackerrank.com/challenges/separate-the-numbers/problem?h_r=next-challenge&h_v=zen
-
 Input:
 7
 1234
@@ -23,7 +23,6 @@ Input:
 010203
 13
 1
-
 Output:
 YES 1
 YES 9
