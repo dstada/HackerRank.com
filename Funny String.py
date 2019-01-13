@@ -4,7 +4,7 @@ import random
 import re
 import sys
 
-# Complete the funnyString function below.
+
 def funnyString(s):
     left = [ord(cijfer) for cijfer in s]
     diff_left = [abs(left[i+1] - left[i]) for i in range(len(left)-1)]
