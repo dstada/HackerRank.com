@@ -1,10 +1,14 @@
+
+
 def gemstones(arr):
     print(arr)
-    mylist = [set(i) for i in arr]
-    print(mylist)
+    mylist = [set(i) for i in arr]  # list van sets (met unieke waarden erin)
+    # print(mylist)
     temp = mylist[0].intersection(mylist[1])
-    temp = temp.intersection(mylist[2])
-    print(temp)
+    for i in range(len(mylist) - 2):
+        temp = temp.intersection(mylist[i+2])
+    # print(temp)
+    return len(temp)
 
 
 if __name__ == '__main__':
@@ -24,18 +28,4 @@ baccd
 eeabg
 
 Output: 2
-
-Not working for all cases:
-
-def gemstones(arr):
-    gems = []
-    for letter in arr[0]:
-        total = True
-        for i in range(1, len(arr)):
-            if letter not in arr[i]:
-                total = False
-        if total is True:
-            gems.append(letter)
-    return len(gems)
-
 """
