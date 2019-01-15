@@ -29,4 +29,6 @@ defaultdict(<class 'list'>, {'a': [1, 2, 4], 'b': [3, 5]})
 Output:
 1 2 4
 3 5
+
+https://www.hackerrank.com/challenges/defaultdict-tutorial/problem
 """
