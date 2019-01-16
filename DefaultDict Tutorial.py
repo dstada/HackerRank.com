@@ -7,11 +7,11 @@ d = defaultdict(list)
 n, m = list(map(int, input().split()))
 # elk element aan A toevoegen. n-keer dus:
 for i in range(n):
-    d[input()].append(i + 1)
+    d[input()].append(i + 1)        # Voeg aan d toe: input-letter als index en aantal als (ophogende) waarde
 print(d)
 # nu voor elk element in B:
-for i in range(m):
-    print(' '.join(map(str, d[input()])) or -1)
+for i in range(m):                  # Voor elke input voor B:
+    print(' '.join(map(str, d[input()])) or -1)     # de waarde die hoort bij index als input + spatie
 
 """
 Input:
