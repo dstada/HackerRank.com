@@ -4,8 +4,8 @@ def minimumAbsoluteDifference(arr):
     combs = list(itertools.combinations(arr, 2))
     # aantal coms is (len(arr)^2 - len(arr))/2
     print(combs[0])
-
-
+    for i in range(len(combs)):
+        print(i)
 
 
 if __name__ == '__main__':
