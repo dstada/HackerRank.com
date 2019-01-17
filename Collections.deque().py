@@ -2,13 +2,15 @@ from collections import deque
 d = deque()
 for i in range(int(input())):
     cn = input().split()
-    if cn[1]:
+    if len(cn) == 2:
         cmd_string = "d."+cn[0]+"("+cn[1]+")"
+        print(cmd_string)
     else:
-        cmd_string = "d." + cn[0]
-    print(cmd_string)
+        cmd_string = "d." + cn[0]+"()"
+        print(cmd_string)
     eval(cmd_string)
-    print(d)
+print(*d)
+
 
 
 
