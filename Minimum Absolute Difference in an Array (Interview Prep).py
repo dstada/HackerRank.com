@@ -3,15 +3,17 @@ import itertools
 def minimumAbsoluteDifference(arr):
     combs = list(itertools.combinations(arr, 2))
     # aantal coms is (len(arr)^2 - len(arr))/2
-    print(combs[0])
+    mins = []
     for i in range(len(combs)):
-        print(i)
+        mins .append(abs(combs[i][0]-combs[i][1]))
+    return min(mins)
 
 
 if __name__ == '__main__':
     n = int(input())
     arr = list(map(int, input().rstrip().split()))
     result = minimumAbsoluteDifference(arr)
+    print(result)
 
 
 """
