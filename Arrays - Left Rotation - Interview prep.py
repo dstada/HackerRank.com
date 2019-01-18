@@ -8,7 +8,6 @@ def rotLeft(a, d):
     print(a_deque)
 
 
-
 if __name__ == '__main__':
     nd = input().split()
     n = int(nd[0])
@@ -16,6 +15,7 @@ if __name__ == '__main__':
     a = list(map(int, input().rstrip().split()))
     result = rotLeft(a, d)
     print(result)
+
 
 """
 Sample Input
