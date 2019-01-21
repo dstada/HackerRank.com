@@ -4,16 +4,15 @@ def luckBalance(k, contests):
     imp = 0
 
     for cont in contests:
-        if cont[1] == 0:    # An important contest
+        if cont[1] == 0:     # An important contest
             luck += cont[0]
-        elif imp < k:       # An  unimportant contest, if nr of imp. contests < k
-            luck += cont[0] # luck grows
-            imp += 1        # imp grows
+        elif imp < k:        # An  unimportant contest, if nr of imp. contests < k
+            luck += cont[0]  # luck grows
+            imp += 1         # imp grows
         else:
-            luck -= cont[0] # Unimportant contest and imp less than k
+            luck -= cont[0]  # Unimportant contest and imp less than k
 
     return luck
-
 
 
 if __name__ == '__main__':
