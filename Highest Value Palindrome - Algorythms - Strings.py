@@ -1,3 +1,5 @@
+
+
 def highestValuePalindrome(s, n, k):
     new_s = ""
     changes = 0
