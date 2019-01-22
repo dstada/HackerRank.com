@@ -8,10 +8,10 @@ def highestValuePalindrome(s, n, k):
     else:
         center = ""
     for i in range(len(s)//2):
-        if str(s[i:i+1]) != str(s[len(s)-1-i:len(s)-i]):
+        if str(s[i:i+1]) != str(s[len(s)-1-i:len(s)-i]):    # Cijfers niet gelijk
             new_s +=str(max(s[i:i+1], s[len(s)-1-i:len(s)-i]))
             changes += 1
-        else:
+        else:                                               # Cijfers gelijk
             new_s += str(s[i:i+1])
     if changes > k:
         return "-1"
