@@ -6,19 +6,19 @@ def caesarCipher(s, k):
         # print(ord(letter))
         new_letter = ""
         if 64 < ord(letter) < 91:       # Hoofdletter
-            if ord(letter) + k > 90:
-                new_letter = chr(ord(letter) + k - 26)
+            if ord(letter) + k%26 > 90:
+                new_letter = chr(ord(letter) + k%26 - 26)
             else:
-                new_letter = chr(ord(letter) + k)
+                new_letter = chr(ord(letter) + k%26)
         elif 96 < ord(letter) < 123:            # Kleine letter
-            if ord(letter) + k > 122:
-                new_letter = chr(ord(letter) + k - 26)
+            if ord(letter) + k%26 > 122:
+                new_letter = chr(ord(letter) + k%26 - 26)
             else:
-                new_letter = chr(ord(letter) + k)
+                new_letter = chr(ord(letter) + k%26)
         else:                           # Geen kleine of hoofdletter
             new_letter = letter     # Niets veranderen aan de input-letter
         new_s += new_letter
-    print(new_s)
+    return new_s
 
 
 
