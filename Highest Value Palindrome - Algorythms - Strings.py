@@ -9,11 +9,16 @@ def highestValuePalindrome(s, n, k):
         center = ""
     for i in range(len(s)//2):
         if str(s[i:i+1]) != str(s[len(s)-1-i:len(s)-i]):    # Cijfers niet gelijk
-            new_s +=str(max(s[i:i+1], s[len(s)-1-i:len(s)-i]))
-            changes += 1
+            if max(s[i:i+1], s[len(s)-1-i:len(s)-i]) != "9":   # Hoogste is geen 9. Dan 2 x een change
+                changes += 2
+                # print("Ophogen met 2")
+            else:                                           # Hoogste is al een 9, dus 1 x change
+                changes += 1
+            new_s += str(9)
         else:                                               # Cijfers gelijk
             new_s += str(s[i:i+1])
     if changes > k:
+        # print(changes)
         return "-1"
     else:
         new_s = new_s + center + new_s[::-1]
@@ -49,4 +54,5 @@ Sample Input
 0011
 Sample Output
 -1
+
 """
