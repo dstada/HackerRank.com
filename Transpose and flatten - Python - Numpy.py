@@ -5,6 +5,7 @@ n, m = map(int, input().split())
 # (n = rows and n = columns)
 
 my_array = numpy.array([input().split() for _ in range(n)], int)
+print(my_array)
 print(my_array.transpose())
 print(my_array.flatten())
 
