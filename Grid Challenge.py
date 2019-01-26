@@ -10,14 +10,10 @@ def gridChallenge(grid):        # grid is like: ['ebacd', 'fghij', 'olmkn', 'trp
     no = False
     for row in grid:            # Voor elke regel (= ingevoerd woord)
         sorted_grid.append(sort_string(row))    # Zet woord op alf. volgorde en voeg toe aan sorted_grid
-    # print(sorted_grid)
-    # print(len(grid))
     for i in range(len(grid[0])):  # Doe dit zo vaak als er en woord letters heeft:
         strg = ""
         for j in range(len(grid)):  # zo vaak doen als het aantal woorden
-            # print(sorted_grid[j][i])
             strg += sorted_grid[j][i]
-        # print(strg)
         if strg != sort_string(strg):
             no = True
             break
