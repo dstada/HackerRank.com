@@ -27,9 +27,11 @@ def substrCount(n, s):
         while y < n - 1:    # zolang y  minder dan aantal letters in string - 1
             y += 1          # waarde y ophogen met 1
             if s[x] == s[y]:    # als letter van huidige letter gelijk is aan volgende letter
+                print("s[x] == s[y] - {} {}".format(s[x], s[y]))
                 count += 1      # teller ophogen met een
             else:
                 if s[x:y] == s[y+1:2*y-x+1]:  # twee opvolgende letters niet gelijk aan elkaar, dan
+                    print(s[x:y], s[y+1:2*y-x+1])   # letter twee posities vergelijken
                     count += 1
                 break
     return count
