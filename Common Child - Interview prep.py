@@ -1,4 +1,4 @@
-import difflib
+# import difflib
 
 
 def commonChild(s1, s2):
@@ -10,12 +10,27 @@ def commonChild(s1, s2):
         if letter in s1:
             s2a += letter
     print(s1a, s2a)
-    matcher = difflib.SequenceMatcher(
-        None, s1a, s2a)
-    match = matcher.find_longest_match(
-        0, len(s1a), 0, len(s2a))
-    return match.size
 
+
+def lcs(s1, s2):
+    matrix = [["" for x in range(len(s2))] for x in range(len(s1))]
+    print(matrix)
+    for i in range(len(s1)):
+        for j in range(len(s2)):
+            if s1[i] == s2[j]:
+                if i == 0 or j == 0:
+                    matrix[i][j] = s1[i]
+                else:
+                    matrix[i][j] = matrix[i-1][j-1] + s1[i]
+            else:
+                matrix[i][j] = max(matrix[i-1][j], matrix[i][j-1], key=len)
+    print(matrix)
+
+    cs = matrix[-1][-1]
+
+    return len(cs), cs
+
+print(lcs("abcdaf", "acbcf"))
 
 if __name__ == '__main__':
     s1 = input()
@@ -56,4 +71,14 @@ FBDAMN
 
 Output:
 2
+
+With this you'll find the longest string which is in both strings.
+So, without deleting any of the letters that both strings have in common:
+
+    matcher = difflib.SequenceMatcher(
+        None, s1a, s2a)
+    match = matcher.find_longest_match(
+        0, len(s1a), 0, len(s2a))
+    return match.size
+
 """
