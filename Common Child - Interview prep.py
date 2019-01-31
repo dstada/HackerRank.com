@@ -1,36 +1,39 @@
-# import difflib
-
 
 def commonChild(s1, s2):
-    s1a, s2a = "", ""
-    for letter in s1:
-        if letter in s2:
-            s1a += letter
-    for letter in s2:
-        if letter in s1:
-            s2a += letter
-    print(s1a, s2a)
-
-
-def lcs(s1, s2):
-    matrix = [["" for x in range(len(s2))] for x in range(len(s1))]
-    print(matrix)
-    for i in range(len(s1)):
-        for j in range(len(s2)):
-            if s1[i] == s2[j]:
-                if i == 0 or j == 0:
-                    matrix[i][j] = s1[i]
-                else:
-                    matrix[i][j] = matrix[i-1][j-1] + s1[i]
+    m, n = len(s1), len(s2)
+    prev, cur = [0]*(n+1), [0]*(n+1)
+    for i in range(1, m+1):
+        for j in range(1, n+1):
+            if s1[i-1] == s2[j-1]:
+                cur[j] = 1 + prev[j-1]
             else:
-                matrix[i][j] = max(matrix[i-1][j], matrix[i][j-1], key=len)
-    print(matrix)
+                if cur[j-1] > prev[j]:
+                    cur[j] = cur[j-1]
+                else:
+                    cur[j] = prev[j]
+        cur, prev = prev, cur
+    return prev[n]
 
-    cs = matrix[-1][-1]
 
-    return len(cs), cs
+# Te traag:
+# def commonChild(s1, s2):
+#     matrix = [["" for x in range(len(s2))] for x in range(len(s1))]
+#     for i in range(len(s1)):
+#         for j in range(len(s2)):
+#             if s1[i] == s2[j]:
+#                 if i == 0 or j == 0:
+#                     matrix[i][j] = s1[i]
+#                 else:
+#                     matrix[i][j] = matrix[i-1][j-1] + s1[i]
+#             else:
+#                 matrix[i][j] = max(matrix[i-1][j], matrix[i][j-1], key=len)
+#
+#     cs = matrix[-1][-1]
+#
+#     # return len(cs), cs
+#     return len(cs)
 
-print(lcs("abcdaf", "acbcf"))
+
 
 if __name__ == '__main__':
     s1 = input()
