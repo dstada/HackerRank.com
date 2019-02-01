@@ -3,6 +3,12 @@ from random import randint
 # Laagste en hoogste waarde ascii-tabel:
 a, b = 97, 122
 
+# Create dict
+grid_dict = {}
+
+# tussenijst maken:
+new_list = []
+
 # Vraag om de afmetingen van het grid:
 lst = list(map(int, input("Give number of rows and columns, seperated by a space: ").split()))
 hor = lst[0]
@@ -14,7 +20,14 @@ for i in range(0, hor):
     for j in range(0, ver):
         new.append(chr(randint(a, b)))
     grid.append(new)
-print(grid)
+# print(grid[2][3])       # Eerst regel, dan x-e letter van die regel
+
+# Set maken van de waarden in grid:
+for i in range(len(grid)):
+    for j in range(len(grid[0])):
+        new_list.append(grid[i][j])
+for letter in new_list:
+    grid_dict[letter] = 0
 
 
 
