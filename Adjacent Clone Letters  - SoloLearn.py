@@ -1,33 +1,50 @@
 from random import randint
 
-# Laagste en hoogste waarde ascii-tabel:
 a, b = 97, 122
-
-# Create dict
 grid_dict = {}
-
-# tussenijst maken:
 new_list = []
-
-# Vraag om de afmetingen van het grid:
 lst = list(map(int, input("Give number of rows and columns, seperated by a space: ").split()))
 hor = lst[0]
 ver = lst[1]
-# Maak grid aan:
 grid = []
 for i in range(0, hor):
     new = []
     for j in range(0, ver):
-        new.append(chr(randint(a, b)))
+        new_letter = chr(randint(a, b))
+        new.append(new_letter)
+        new_list.append(new_letter)
     grid.append(new)
-# print(grid[2][3])       # Eerst regel, dan x-e letter van die regel
-
-# Set maken van de waarden in grid:
-for i in range(len(grid)):
-    for j in range(len(grid[0])):
-        new_list.append(grid[i][j])
-for letter in new_list:
+for row in grid:
+    print(row)
+for letter in set(new_list):
     grid_dict[letter] = 0
+print(grid_dict)
+# print(grid[2][3])       # Eerst regel, dan x-e letter van die regel
+for i in range(0, hor):
+    for j in range(0,ver):
+        print(grid[i][j])
+        if i-1 >= 0:        # boven
+            print("boven: {}".format(grid[i-1][j]))
+            if grid[i][j] == grid[i-1][j]:
+                grid_dict[grid[i][j]] += 1
+        if i+1 < len(grid):  # onder
+            print("onder: {}".format(grid[i+1][j]))
+        if i-1 >= 0 and j-1 >= 0:   # linksboven
+            print("linksboven: {}".format(grid[i-1][j-1]))
+        if i-1 >= 0 and j+1 < len(grid):
+            print("rechtsboven: {}".format(grid[i-1][j+1]))
+        if i + 1 < len(grid) and j + 1 < len(grid):
+            print("rechtsonder: {}".format(grid[i + 1][j + 1]))
+        if i+1 < len(grid) and j-1 >= 0:
+            print("linksonder: {}".format(grid[i+1][j-1]))
+        if j-1 >= 0:        # links
+            print("links: {}".format(grid[i][j-1]))
+        if j+1 < len(grid):  # rechts
+            print("rechts: {}".format(grid[i][j+1]))
+
+        print("--------------")
+
+print(grid_dict)
 
 
 
