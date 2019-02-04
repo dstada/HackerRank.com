@@ -1,6 +1,7 @@
 from random import randint
 
-a, b = 97, 122
+# a, b = 97, 122  kleine letters
+a, b = 65, 90
 grid_dict = {}
 new_list = []
 lst = list(map(int, input("Give number of rows and columns, seperated by a space: ").split()))
@@ -18,45 +19,36 @@ for row in grid:
     print(row)
 for letter in set(new_list):
     grid_dict[letter] = 0
-print(grid_dict)
-# print(grid[2][3])       # Eerst regel, dan x-e letter van die regel
 for i in range(0, hor):
     for j in range(0, ver):
-        print(grid[i][j])
-        if i-1 >= 0 and j-1 >= 0:   # linksboven
-            print("linksboven: {}".format(grid[i-1][j-1]))
+        if i-1 >= 0 and j-1 >= 0:
             if grid[i][j] == grid[i-1][j-1]:
                 grid_dict[grid[i][j]] += 1
-        if i - 1 >= 0:  # boven
-            print("boven: {}".format(grid[i - 1][j]))
+        if i - 1 >= 0:
             if grid[i][j] == grid[i - 1][j]:
                 grid_dict[grid[i][j]] += 1
-        if i-1 >= 0 and j+1 < ver:        # --------------------------
-            print("rechtsboven: {}".format(grid[i-1][j+1]))
+        if i-1 >= 0 and j+1 < ver:
             if grid[i][j] == grid[i-1][j+1]:
                 grid_dict[grid[i][j]] += 1
-        if j-1 >= 0:        # links
-            print("links: {}".format(grid[i][j-1]))
+        if j-1 >= 0:
             if grid[i][j] == grid[i][j-1]:
                 grid_dict[grid[i][j]] += 1
-        if j+1 < ver:  # rechts        # --------------------------
-            print("rechts: {}".format(grid[i][j+1]))
+        if j+1 < ver:
             if grid[i][j] == grid[i][j+1]:
                 grid_dict[grid[i][j]] += 1
-        if i+1 < hor and j-1 >= 0:        # --------------------------
-            print("linksonder: {}".format(grid[i+1][j-1]))
+        if i+1 < hor and j-1 >= 0:
             if grid[i][j] == grid[i+1][j-1]:
                 grid_dict[grid[i][j]] += 1
-        if i+1 < hor:  # onder        # --------------------------
-            print("onder: {}".format(grid[i+1][j]))
+        if i+1 < hor:
             if grid[i][j] == grid[i+1][j]:
                 grid_dict[grid[i][j]] += 1
-        if i + 1 < hor and j + 1 < ver:        # --------------------------
-            print("rechtsonder: {}".format(grid[i + 1][j + 1]))
+        if i + 1 < hor and j + 1 < ver:
             if grid[i][j] == grid[i+1][j+1]:
                 grid_dict[grid[i][j]] += 1
 
-print(grid_dict)
+for letter in grid_dict:
+    if grid_dict[letter] > 0:
+        print("{} = {} adjacent clones".format(letter.upper(), grid_dict[letter]))
 
 
 """
