@@ -7,7 +7,6 @@ def check_happy(b):
         if (i - 1 >= 0 and b[i - 1] == b[i]) or i + 1 < len(b) and b[i + 1] == b[i]:
             happy = True
         else:
-            print("Niet happy")
             overall_happy = False
         print(happy)
     return overall_happy
@@ -18,7 +17,6 @@ def happyLadybugs(b):
     for letter in b:
         if letter != '_' and b.count(letter) < 2:
             return "NO"
-            # break
     # Check if existing ladybugs are happy now:
     if check_happy(b) is True:
         return "YES"
