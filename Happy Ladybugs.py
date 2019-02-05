@@ -1,14 +1,12 @@
 def check_happy(b):
     overall_happy = True
     for i in range(len(b)):
-        print(i)
         happy = False
         # If left or right is the same colour bug, then happy:
         if (i - 1 >= 0 and b[i - 1] == b[i]) or i + 1 < len(b) and b[i + 1] == b[i]:
             happy = True
         else:
             overall_happy = False
-        print(happy)
     return overall_happy
 
 
@@ -21,9 +19,11 @@ def happyLadybugs(b):
     if check_happy(b) is True:
         return "YES"
     else:
-        #TODO: Kijk hoe de ladybugs toch blij kunnen worden
-        print("Kijken of ze blij kunnen worden")
-
+        if b.count("_") == 0:
+            for i in range(1, n - 1):
+                if b[i - 1] != b[i] and b[i + 1] != b[i]:   # No similar neighbours
+                    return "NO"
+        return "YES"                # Empty place(s)
 
 if __name__ == '__main__':
     g = int(input())
