@@ -1,6 +1,16 @@
 def happyLadybugs(b):
     print(b)
+    # At least one char is the only of that kind:
+    for letter in b:
+        if letter != '_' and b.count(letter) < 2:
+            print("NO")
+            break
+    # Check if existing ladybugs are happy now:
+    for i in range(len(b)):
+        print(i)
 
+
+    return 10
 
 
 if __name__ == '__main__':
@@ -9,7 +19,7 @@ if __name__ == '__main__':
         n = int(input())
         b = input()
         result = happyLadybugs(b)
-
+        print(result)
 
 """
 Input:
