@@ -1,27 +1,20 @@
 def icecreamParlor(m, arr):
-    print(m, arr)
-    print(sorted(arr))
+    sort_arr = sorted(arr)
     tot = m - 1
     i, j = 0, 0
     while tot != m:     # Zolang totaal van 2 elementen niet gelijk is aan het budget
-        if arr[0+i] + arr[len(arr)-1-j] < m:
+        tot = sort_arr[0+i] + sort_arr[len(arr)-1-j]
+        if tot < m:
+            # print("{} lager dan budget {}".format(tot, m))
             i += 1
-        elif arr[0+i] + arr[len(arr)-1-j] > m:
+        elif tot > m:
+            # print("Tot te hoog")
             j += 1
         else:
-            print(i, j)
-            # res_arr = str(arr[0+i]) + " " + str(arr[len(arr)-1-i])
-            res_arr = str(arr.index(arr[0+i])) + " " + str(arr.index(arr[len(arr)-1-i]))
-            # return res_arr
-
-
-
-
-
-
-    # arr.index(value)
-
-    return "check"
+            if arr.index(sort_arr[0+i]) < arr.index(sort_arr[len(arr)-1-j]):
+                return str(arr.index(sort_arr[0+i])+1) + str(arr.index(sort_arr[len(arr)-1-j])+1)
+            else:
+                return  str(arr.index(sort_arr[len(arr) - 1 - j])+1) + str(arr.index(sort_arr[0 + i])+1)
 
 
 if __name__ == '__main__':
