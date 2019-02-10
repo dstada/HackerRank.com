@@ -5,10 +5,10 @@ def icecreamParlor(m, arr):
     while tot != m:     # Zolang totaal van 2 elementen niet gelijk is aan het budget
         tot = sort_arr[0+i] + sort_arr[len(arr)-1-j]
         if tot < m:
-            # print("{} lager dan budget {}".format(tot, m))
+            print("{} lager dan budget {}".format(tot, m))
             i += 1
         elif tot > m:
-            # print("Tot te hoog")
+            print("Tot te hoog")
             j += 1
         else:
             if arr.index(sort_arr[0+i]) < arr.index(sort_arr[len(arr)-1-j]):
