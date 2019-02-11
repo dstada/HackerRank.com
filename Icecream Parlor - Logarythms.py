@@ -12,7 +12,19 @@ def icecreamParlor(m, arr):
             j += 1
         else:
             print("tot {} gelijk aan budget {}".format(tot, m))
-            if arr.index(sort_arr[0+i]) < arr.index(sort_arr[len(arr)-1-j]):
+            if sort_arr[0 + i] == sort_arr[len(arr) - 1 - j]:
+                search_value = sort_arr[0 + i]
+                print("Beide cijfers zijn gelijk")
+                # Nu 2 verschillende indexen vinden:
+                first = arr.index(search_value)
+                print("first {}".format(first))
+                print("Tweede index komt uit rest van arr:")
+                # print(arr[arr.index(search_value):].index(search_value))
+                second = arr[first+1:].index(search_value) + 1
+                print("second {}".format(second))
+                return str(first+1) + str(second+1)
+
+            if arr.index(sort_arr[0+i]) < arr.index(sort_arr[len(arr)-1-j]):    # Laagste waarde voorop
                 return str(arr.index(sort_arr[0+i])+1) + str(arr.index(sort_arr[len(arr)-1-j])+1)
             else:
                 return str(arr.index(sort_arr[len(arr) - 1 - j])+1) + str(arr.index(sort_arr[0 + i])+1)
@@ -40,5 +52,25 @@ Input:
 
 Output:
 1 4
+1 2
+
+Input:
+3
+9
+6
+1 3 4 6 7 9
+8
+6
+1 3 4 4 6 8
+3
+2
+1 2
+Your Output (stdout)
+2 4
+3 2
+1 2
+Expected OutputDownload
+2 4
+3 4
 1 2
 """
