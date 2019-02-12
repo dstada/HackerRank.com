@@ -20,7 +20,7 @@ def icecreamParlor(m, arr):
                 print("first {}".format(first))
                 print("Tweede index komt uit rest van arr:")
                 print("Rest is: arr[first+1: {}".format(arr[first+1:]))
-                second = arr[first+1:].index(search_value) + 1
+                second = arr[first+1:].index(search_value) + first + 1
                 print("second {}".format(second))
                 return str(first+1) + str(second+1)
             elif arr.index(sort_arr[0+i]) < arr.index(sort_arr[len(arr)-1-j]):    # Laagste waarde voorop
