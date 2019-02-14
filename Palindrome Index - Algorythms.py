@@ -4,6 +4,7 @@ def palindromeIndex(s):
     if s == s[::-1]:
         return -1
     else:
+        if
         for i in range(len(s)+1):
             if i > 0:
                 s_temp = s[:i-1] + s[i:]
