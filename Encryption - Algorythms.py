@@ -1,25 +1,33 @@
 import math
 
 def encryption(s):
-    deler = int(math.sqrt(len(s)))
-    print("deler: {}".format(deler))
+    if int(math.sqrt(len(s))) * int(math.sqrt(len(s))) == len(s):
+        deler_hor = int(math.sqrt(len(s)))
+        deler_ver = int(math.sqrt(len(s)))
+    else:
+        deler_hor = int(math.sqrt(len(s))) + 1
+
+    if deler_hor * (deler_hor - 1) < len(s):
+        deler_ver = deler_hor
+    else:
+        deler_ver = deler_hor - 1
+
     woord = ""
-    for j in range(deler + 1):      # 0, 1, 2
-        for i in range(deler):
-            print("s: {} - {}".format(len(s), j + i*(deler+1)))
+    for j in range(deler_hor):
+        for i in range(deler_ver):
             try:
-                woord += s[j + i * (deler + 1)]
-                print("woord nu: ".format(woord))
+                woord += s[j + i * (deler_hor)]
             except IndexError:
                 woord += ""
 
         woord += " "
-    print(woord)
+    return woord
 
 
 if __name__ == '__main__':
     s = input()
     encryption(s)
+    print(encryption(s))
 
 """
 haveaniceday --> hae and via ecy
@@ -28,6 +36,10 @@ feedthedog --> fto ehg ee dd
 
 chillout --> clu hlt io
 
+chilloutx --> clu hlt iox
+
+ifmanwasmeanttostayonthegroundgodwouldhavegivenusroots -->
+imtgdvs fearwer mayoogo anouuio ntnnlvt wttddes aohghn sseoau
 
 https://www.hackerrank.com/challenges/encryption/problem
 
