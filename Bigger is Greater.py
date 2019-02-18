@@ -7,6 +7,7 @@ def biggerIsGreater(w):
         lst.append(ord(letter))
     print(lst)
 
+
 if __name__ == '__main__':
     T = int(input())
     for T_itr in range(T):
