@@ -19,10 +19,12 @@ def biggerIsGreater(w):
             print("rechter buren: {}".format(lst[len(lst) - i - 1:]))
             rest_lst = sorted(lst[len(lst) - i - 1:])
             # print("Rechter buren op volgorde: {}".format())
-            print("Deze waarde(s) blijft/blijven staan: {}".format(lst[:len(lst) - i - 1]))
+            print("Deze waarde(s) blijft/blijven staan: {}".format(lst[:len(lst) - i - 2]))
 
             # Dus: 1) vervang de eerste vanaf rechts waarvan de waarde kleiner is dan rechter buurman,
             # door de kleinste van de rechter buurmannen en zet de rest in oplopende volgorde.
+            break
+
 
 if __name__ == '__main__':
     T = int(input())
