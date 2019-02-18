@@ -17,6 +17,8 @@ def biggerIsGreater(w):
         if lst[len(lst)-i-1] > lst[len(lst) - i - 2]:
             print("Rechter buurman van {} groter!".format(lst[len(lst) - i - 2]))
             print("rechter buren: {}".format(lst[len(lst) - i - 1:]))
+            rest_lst = sorted(lst[len(lst) - i - 1:])
+            # print("Rechter buren op volgorde: {}".format())
             print("Deze waarde(s) blijft/blijven staan: {}".format(lst[:len(lst) - i - 1]))
 
             # Dus: 1) vervang de eerste vanaf rechts waarvan de waarde kleiner is dan rechter buurman,
