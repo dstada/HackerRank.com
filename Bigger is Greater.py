@@ -85,7 +85,7 @@ abdc
 fedcbabdc
 
 https://www.hackerrank.com/challenges/bigger-is-greater/problem?h_r=next-challenge&h_v=zen
-
+"""
 for _ in range(int(input())):
     w = input().strip()
     n = len(w)+1
@@ -102,4 +102,3 @@ for _ in range(int(input())):
             break
     else:# If no letter of the initial word w is smaller than the previous from right, i.e. the letters are decreasing in the word, 
         print('no answer')# than no rearrangement gives a lexicographically greater.
-"""
