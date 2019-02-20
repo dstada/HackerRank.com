@@ -24,6 +24,7 @@ def kaprekarNumbers(p, q):
             print("Kaprekar!")
 
 
+
         # print(type(int(left)))
         # tot = int(left)+int(right)
         # if tot == i:
