@@ -35,3 +35,17 @@ if __name__ == '__main__':
     p = int(input())
     q = int(input())
     kaprekarNumbers(p, q)
+
+
+"""
+https://www.hackerrank.com/challenges/kaprekar-numbers/problem
+
+
+input
+1
+100
+
+output:
+
+1 9 45 55 99
+"""
