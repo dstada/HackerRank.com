@@ -1,17 +1,33 @@
 
 
 def kaprekarNumbers(p, q):
-    for i in range(p,q + 1):
+
+    for i in range(p, q + 1):
+        som = 0
         square = str(i*i)
         print(i, square)
+        # Split the square in 2 parts:
+        right = square[-len(str(i)):]
+        print(right)
+        left = square[:(len(str(square))-len(right))]
+        print("left: {}  | right: {}".format(left, right))
+        if left == "":
+            print("links None")
+            som = int(right)
+        else:
+            som = int(left) + int(right)
+        # else:
+        #     som = int(left) + int(right)
+        print("som: {}".format(som))
 
-        tot = 0
-        for digit in square:
-            print(digit)
-            tot += int(digit)
-        print(tot)
-        if tot == i:
-            print("kaprekar!")
+        if som == i:
+            print("Kaprekar!")
+
+
+        # print(type(int(left)))
+        # tot = int(left)+int(right)
+        # if tot == i:
+        #     print("Kaprekar!")
         print("-----------")
 
 
