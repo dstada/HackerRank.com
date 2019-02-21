@@ -1,7 +1,7 @@
 
 
 def kaprekarNumbers(p, q):
-
+    return_string = ""
     for i in range(p, q + 1):
         som = 0
         square = str(i*i)
@@ -22,20 +22,20 @@ def kaprekarNumbers(p, q):
 
         if som == i:
             print("Kaprekar!")
-
-
-
-        # print(type(int(left)))
-        # tot = int(left)+int(right)
-        # if tot == i:
-        #     print("Kaprekar!")
+            return_string += str(i) + " "
         print("-----------")
+    print("return_string:{}...".format(return_string))
+    if return_string == "":
+        return "INVALID RANGE"
+    else:
+        return return_string
+
 
 
 if __name__ == '__main__':
     p = int(input())
     q = int(input())
-    kaprekarNumbers(p, q)
+    print(kaprekarNumbers(p, q))
 
 
 """
@@ -49,4 +49,11 @@ input
 output:
 
 1 9 45 55 99
+
+input:
+400
+700
+
+output:
+INVALID RANGE
 """
