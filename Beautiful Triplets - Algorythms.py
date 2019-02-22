@@ -1,11 +1,19 @@
 def beautifulTriplets(d, arr):
-    print(d)
-    print(arr)
-    for i in range(len(arr)-1): # Voor elk element in arr behalve de laatste
+    triple = 0
+    for i in range(len(arr) - 1): # Voor elk element in arr behalve de laatste
         # check of volgende eentje hoger is qua waarde
         tot = 1
         for j in range(len(arr) - 2):
-            print(i, j)
+            print(arr[i], arr[j])
+            if arr[j] - arr[i] == d:
+                print("{} en {} zijn opeenvolgend".format(arr[i], arr[j]))
+                tot += 1
+                if tot == 3:
+                    print("triple")
+                    triple += 1
+                    break
+    print(triple)
+
 
 if __name__ == '__main__':
     nd = input().split()
