@@ -1,11 +1,12 @@
 def beautifulTriplets(d, arr):
     print(d)
     print(arr)
-    for i in range(len(arr)-1): # Voor elk element in arr behalve de laatste
+    for i in range(len(arr)-1):     # Voor elk element in arr behalve de laatste
         # check of volgende eentje hoger is qua waarde
         tot = 1
         for j in range(len(arr) - 2):
             print(i, j)
+
 
 if __name__ == '__main__':
     nd = input().split()
