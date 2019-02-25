@@ -4,16 +4,36 @@ import random
 import re
 import sys
 
+
 # Complete the climbingLeaderboard function below.
 def climbingLeaderboard(scores, alice):
     print(scores)
     teller = 1
-    # neem element van alice,
-    # voeg tussen,
-    # check de score van tussengevoegd element
+    # sorteer alice an laag naar hoog
+    print(sorted(alice))
 
-    for i in range(len(alice)):
-        print(i)
+
+
+    # for i in range(len(alice)):
+    #     print("{} op plek {}".format(alice[i], i))
+    #     # bekijk elk element van scores en voeg tussen
+    #     for j in range(len(scores)):
+    #         # Pak element, kijk of score alie groter gelijk of kleiner is
+    #         if alice[i] > scores[j]:        # score alice groter dan element in scores:
+    #             # alice invoegen vóór scores
+    #             print("{} groter dan {}".format(alice[i], scores[j]))
+    #             scores =  [alice[i]] + scores
+    #             print(scores)
+    #             break
+    #         elif alice[i] == scores[j]:
+    #             print("{} gelijk aan {}".format(alice[i], scores[j]))
+    #             break
+    #         else:
+    #             print("{} kleiner dan {}".format(alice[i], scores[j]))
+
+
+
+
 
 
     # for i in range(1, len(scores)):     # Vanaf het 2e item
