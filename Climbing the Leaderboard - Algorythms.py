@@ -8,8 +8,18 @@ import sys
 def climbingLeaderboard(scores, alice):
     print(scores)
     teller = 1
-    for i in range(len(scores)):
+    # neem element van alice,
+    # voeg tussen,
+    # check de score van tussengevoegd element
 
+    for i in range(len(alice)):
+        print(i)
+
+
+    # for i in range(1, len(scores)):     # Vanaf het 2e item
+    #     if scores[i] < scores[i-1]:
+    #         teller += 1
+    #     print(scores[i], teller)
 
 
 
