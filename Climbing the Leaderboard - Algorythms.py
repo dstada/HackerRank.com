@@ -13,9 +13,11 @@ def climbingLeaderboard(scores, alice):
     result = []
     lengte = len(scores_set)
     for s in alice:     # Voor elk element in alice
-        while (lengte > 0) and (s >= scores_set[lengte - 1]):       # zolang lente>0 en element in alice groter dan de actuele element in scores_set
-            lengte -= 1                 # lengte verlagen met 1     #
-        result.append(lengte + 1)       # element van alice nu kleiner dan
+        # zolang lente>0 en element in alice groter dan actuele score:
+        while (lengte > 0) and (s >= scores_set[lengte - 1]):
+            lengte -= 1                 # lengte verlagen met 1
+        result.append(lengte + 1)
+        # element van alice nu kleiner dan actuele score --> rang volgens Dense Ranking toevoegen aan de array result
     return result
 
 
@@ -25,7 +27,7 @@ if __name__ == '__main__':
     alice_count = int(input())
     alice = list(map(int, input().rstrip().split()))
     result = climbingLeaderboard(scores, alice)
-
+    print(result)
 
 """
 Input:
