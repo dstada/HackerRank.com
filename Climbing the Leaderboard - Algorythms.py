@@ -5,42 +5,18 @@ import re
 import sys
 
 
-# Complete the climbingLeaderboard function below.
 def climbingLeaderboard(scores, alice):
-    print(scores)
-    teller = 1
-    # sorteer alice an laag naar hoog
-    print(sorted(alice))
-
-
-
-    # for i in range(len(alice)):
-    #     print("{} op plek {}".format(alice[i], i))
-    #     # bekijk elk element van scores en voeg tussen
-    #     for j in range(len(scores)):
-    #         # Pak element, kijk of score alie groter gelijk of kleiner is
-    #         if alice[i] > scores[j]:        # score alice groter dan element in scores:
-    #             # alice invoegen vóór scores
-    #             print("{} groter dan {}".format(alice[i], scores[j]))
-    #             scores =  [alice[i]] + scores
-    #             print(scores)
-    #             break
-    #         elif alice[i] == scores[j]:
-    #             print("{} gelijk aan {}".format(alice[i], scores[j]))
-    #             break
-    #         else:
-    #             print("{} kleiner dan {}".format(alice[i], scores[j]))
-
-
-
-
-
-
-    # for i in range(1, len(scores)):     # Vanaf het 2e item
-    #     if scores[i] < scores[i-1]:
-    #         teller += 1
-    #     print(scores[i], teller)
-
+    scores_set = list(set(scores))
+    # scores_set is niet geordend
+    scores_set.sort(reverse=True)
+    # nu is scores_set geordend van hoog naar laag
+    result = []
+    lengte = len(scores_set)
+    for s in alice:     # Voor elk element in alice
+        while (lengte > 0) and (s >= scores_set[lengte - 1]):       # zolang lente>0 en element in alice groter dan de actuele element in scores_set
+            lengte -= 1                 # lengte verlagen met 1     #
+        result.append(lengte + 1)       # element van alice nu kleiner dan
+    return result
 
 
 if __name__ == '__main__':
