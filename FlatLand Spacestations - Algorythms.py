@@ -8,8 +8,16 @@ import sys
 def flatlandSpaceStations(n, c):
     # zet c op volgorde:
     c = sorted(c)
-
-
+    # eerste verschil (tussen beginpunt en eerste station
+    diff = [c[0] - 0]
+    print(diff)
+    for i in range(len(c) - 1):
+        print("Voeg toe")
+        diff.append(c[i+1] - c[i])
+    print(c[-1])
+    print(n-1)
+    diff.append(c[-1] - (n-1))
+    print(diff)
 
 
     # # Naar boven afronden:
