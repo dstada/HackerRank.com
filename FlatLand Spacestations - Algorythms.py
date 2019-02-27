@@ -6,24 +6,18 @@ import sys
 
 
 def flatlandSpaceStations(n, c):
+    # n is aantal steden
+    # c is index van de stations
     # zet c op volgorde:
     c = sorted(c)
     # eerste verschil (tussen beginpunt en eerste station
-    diff = [c[0] - 0]
-    print(diff)
+    diff = [abs(c[0] - 0)]
+    # de verschillen tussen de stations in:
     for i in range(len(c) - 1):
-        print("Voeg toe")
-        diff.append(c[i+1] - c[i])
-    print(c[-1])
-    print(n-1)
-    diff.append(c[-1] - (n-1))
-    print(diff)
-
-
-    # # Naar boven afronden:
-    # x = 22.2
-    # print(math.ceil(x))
-    # # --> 23
+        diff.append(int((c[i+1] - c[i])/2))
+    # verschil tussen laatste station en laatste stad:
+    diff.append(abs(c[-1] - (n-1)))
+    return max(diff)
 
 
 if __name__ == '__main__':
@@ -50,5 +44,4 @@ Output:
 2
 
 https://www.hackerrank.com/challenges/flatland-space-stations/problem
-
 """
