@@ -6,6 +6,8 @@ def cavityMap(grid):
     print(arr)
     for i in range(1, len(grid) - 1):
         print(grid[i])
+        new_line = grid[i]
+        print("new_line: {}".format(new_line))
         for j in range(1, len(grid[i]) - 1):
             u = int(grid[i - 1][j])
             l = int(grid[i][j - 1])
@@ -13,7 +15,8 @@ def cavityMap(grid):
             d = int(grid[i + 1][j])
             if u < int(grid[i][j]) and l < int(grid[i][j]) and r < int(grid[i][j]) and d < int(grid[i][j]):
                 print("X")
-    arr.append(grid[--1])
+                new_line = new_line + 'X'
+    arr.append(grid[-1])
     print(arr)
 
 
