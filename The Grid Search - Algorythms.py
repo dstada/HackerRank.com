@@ -1,17 +1,22 @@
 
 
-
-def gridSearch(G, P):   # G = grote matrx en P is de kleine die gezocht moet worden
+def gridSearch(G, P):       # G = grote matrx en P is de kleine die gezocht moet worden
     # if P[0] in G[0]:
     #     print("ja")
     # else:
     #     print("no")
-    # Zoek de eerste regel van G waarin de eerste regel van P zit:
-    for regel in G:
+    # Zoek de eerste regel van G waarin de eerste regel van P zit.
+    # Niet aanwezig? Output is NO.
+    for i in range(len(G) - (len(P) - 1)):
+        print(i)
         try:
-            start_index = regel.index(P[0])
+            start_index = G[i].index(P[0])
+            print("1e regel komt voor")
+            # Eerste regel komt voor; nu de andere regels checken:
+            for j in range(len(P) - 1):     # voor alle regels van P behalve de eerste
+
         except ValueError:
-            print("Niet gevonden")
+            print("Niet in deze regel...")
 
     if start_index:
         print("jawel")
