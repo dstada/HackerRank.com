@@ -1,12 +1,8 @@
 
 
 def gridSearch(G, P):       # G = grote matrix en P is de kleine die gezocht moet worden
-    # if P[0] in G[0]:
-    #     print("ja")
-    # else:
-    #     print("no")
-    # Zoek in G regel voro regel of de eerste regel van P erin zit.
-    # Niet aanwezig? Output is NO.
+    # Zoek in G regel voor regel of de eerste regel van P erin zit.
+    # Helemaal niet aanwezig? Output is NO.
     for i in range(len(G) - (len(P) - 1)):  
         print(i)
         try:
@@ -15,9 +11,15 @@ def gridSearch(G, P):       # G = grote matrix en P is de kleine die gezocht moe
             # Eerste regel komt voor; nu de overige regels van P checken:
             for j in range(1, len(P) - 1):     # voor alle regels van P behalve de eerste
                 # print("lengte P: {}".format(len(P)))
-                print("Nu regel: {}".format(G[j]))
+                print("Nu regel in G: {}".format(G[j + i]))
+                print("Nu in P de te checken regel: {}".format(P[j]))
                 # pak juiste stukje van de regel:
-                print(G[j][start_index:])
+                print(G[j+i][start_index:start_index + len(P) + 1])
+                if G[j+i][start_index:start_index + len(P) + 1] == P[j]:
+                    print("Deze regel is ook hetzelfde!")
+                else:
+                    print("Deze regel is niet hetzelfde...")
+                    break
         except ValueError:
             print("Niet in deze regel...")
 
@@ -107,6 +109,23 @@ NO
 4607924137
 3 4
 4558
+3845
+3530
+-------------------
+1
+10 10
+7283455864
+6731158619
+8988242643
+3830589324
+2229505813
+5633845374
+6473530293
+7053106601
+0834282956
+4607924137
+3 4
+9505
 3845
 3530
 """
