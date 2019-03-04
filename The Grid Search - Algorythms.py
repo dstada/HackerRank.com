@@ -10,7 +10,6 @@ def gridSearch(G, P):       # G = grote matrix en P is de kleine die gezocht moe
             print("1e regel komt voor in regel {}".format(i))
             # Eerste regel komt voor; nu de overige regels van P checken:
             for j in range(1, len(P) - 1):     # voor alle regels van P behalve de eerste
-                # print("lengte P: {}".format(len(P)))
                 print("Nu regel in G: {}".format(G[j + i]))
                 print("Nu in P de te checken regel: {}".format(P[j]))
                 # pak juiste stukje van de regel:
