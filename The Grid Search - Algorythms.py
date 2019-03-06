@@ -12,7 +12,6 @@ def gridSearch(G, P):       # G = grote matrix en P is de kleine die gezocht moe
             for j in range(1, len(P) - 1):     # voor alle regels van P behalve de eerste
                 print("Nu regel in G: {}".format(G[j + i]))
                 print("Nu in P de te checken regel: {}".format(P[j]))
-                # pak juiste stukje van de regel:
                 print(G[j+i][start_index:start_index + len(P) + 1])
                 if G[j+i][start_index:start_index + len(P) + 1] == P[j]:
                     print("Deze regel is ook hetzelfde!")
@@ -20,7 +19,7 @@ def gridSearch(G, P):       # G = grote matrix en P is de kleine die gezocht moe
                     print("Deze regel is niet hetzelfde...")
                     break
         except ValueError:
-            print("Niet in deze regel...")
+            print("Niet in regel {}".format(i))
 
     if start_index:
         print("jawel")
