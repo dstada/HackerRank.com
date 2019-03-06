@@ -2,30 +2,33 @@
 
 def gridSearch(G, P):       # G = grote matrix en P is de kleine die gezocht moet worden
     # Zoek in G regel voor regel of de eerste regel van P erin zit.
-    # Helemaal niet aanwezig? Output is NO.
+    start_index = -1
     for i in range(len(G) - (len(P) - 1)):  
-        print(i)
         try:
             start_index = G[i].index(P[0])
-            print("1e regel komt voor in regel {}".format(i))
-            # Eerste regel komt voor; nu de overige regels van P checken:
-            for j in range(1, len(P) - 1):     # voor alle regels van P behalve de eerste
-                print("Nu regel in G: {}".format(G[j + i]))
-                print("Nu in P de te checken regel: {}".format(P[j]))
+            print("start_index: {}".format(start_index))
+            print("1e regel van P komt voor in regel {} van G".format(i))
+            print(len(P) - 1)
+            zelfde = 1
+            for j in range(1, len(P)):     # Check alle regels van P behalve de eerste
+                print("Check van G: {} of regel {} van P erin zit.".format(G[j + i], P[j]))
+                # print("Nu in P de te checken regel: {}".format(P[j]))
                 print(G[j+i][start_index:start_index + len(P) + 1])
                 if G[j+i][start_index:start_index + len(P) + 1] == P[j]:
                     print("Deze regel is ook hetzelfde!")
+                    zelfde += 1
+                    if zelfde == len(P):
+                        print("Alle {} regels in P gevonden".format(zelfde))
+                        return "YES"
                 else:
                     print("Deze regel is niet hetzelfde...")
                     break
+
         except ValueError:
             print("Niet in regel {}".format(i))
 
-    if start_index:
-        print("jawel")
-    else:
-        print("Niet aanwezig")
-        # return "NO"
+    if start_index == -1:       # P[0] in geen enkele regel van G te vinden
+        return "NO"
 
 
 if __name__ == '__main__':
@@ -93,6 +96,7 @@ YES
 NO
 
 ------------------
+Alleen in regel 0:
 1
 10 10
 7283455864
@@ -110,6 +114,7 @@ NO
 3845
 3530
 -------------------
+Yes, want vanaf regel 4:
 1
 10 10
 7283455864
@@ -126,4 +131,33 @@ NO
 9505
 3845
 3530
+
+1e regel niet aanwezig:
+
+1
+10 10
+7283455864
+6731158619
+8988242643
+3830589324
+2229506813
+5633845374
+6473530293
+7053106601
+0834282956
+4607924137
+3 4
+9505
+3845
+3530
+
+1
+4 6
+123412
+561212
+123634
+781288
+2 2
+12
+34
 """
