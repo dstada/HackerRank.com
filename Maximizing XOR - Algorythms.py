@@ -20,4 +20,6 @@ if __name__ == '__main__':
 Output: 127
 
 https://www.hackerrank.com/challenges/maximizing-xor/problem?h_r=next-challenge&h_v=zen
+
+Uitleg XOR: https://gathering.tweakers.net/forum/list_messages/389910
 """
