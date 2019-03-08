@@ -4,7 +4,14 @@ from operator import xor
 
 
 def maximizingXor(l, r):
-    print(xor(bool(l), bool(r)))
+    outpt = []
+    for i in range(l, r + 1):
+        for j in range(l, r + 1):
+            outpt.append(i ^ j)
+    return max(outpt)
+
+    # As a one-liner:
+    # return max([i ^ j for i in range(l, r + 1) for j in range(i, r + 1)])
 
 
 if __name__ == '__main__':
@@ -18,6 +25,8 @@ if __name__ == '__main__':
 100
 
 Output: 127
+
+
 
 https://www.hackerrank.com/challenges/maximizing-xor/problem?h_r=next-challenge&h_v=zen
 
