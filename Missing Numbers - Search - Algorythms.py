@@ -5,13 +5,11 @@ import re
 import sys
 
 
-# Complete the missingNumbers function below.
 def missingNumbers(arr, brr):
-    print(arr)
-    print(brr)
     for number in arr:
         brr.remove(number)
-    print(brr)
+    return sorted(list(set(brr)))
+
 
 if __name__ == '__main__':
     n = int(input())
