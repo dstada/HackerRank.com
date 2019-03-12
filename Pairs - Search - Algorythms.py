@@ -4,18 +4,23 @@ that have a difference equal to a target value.
 
 Dick Stada - March 2019
 """
-import math
-import os
-import random
-import re
-import sys
 
 
 def pairs(k, arr):      # k is target value
     pairs = 0
-    for getal in arr:
-        if getal + k in arr:
+    arr = sorted(arr)
+    i = 0
+    j = 1
+
+    while j < len(arr):
+        diff = arr[j] - arr[i]
+        if diff == k:
             pairs += 1
+            j += 1
+        elif diff > k:
+            i += 1
+        else:       # diff < k
+            j += 1
     return pairs
 
 
@@ -38,6 +43,8 @@ input:
 output:
 3
 
+Varianten:
+
 def pairs(k, arr):      # k is target value
     # sort arr:
     arr = sorted(arr)
@@ -49,4 +56,11 @@ def pairs(k, arr):      # k is target value
                 break
     return pairs
 
+
+def pairs(k, arr):      # k is target value
+    pairs = 0
+    for getal in arr:
+        if getal + k in arr:
+            pairs += 1
+    return pairs
 """
