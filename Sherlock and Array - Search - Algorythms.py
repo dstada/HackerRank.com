@@ -3,6 +3,8 @@
 def balancedSums(arr):
     if sum(arr[1:]) == 0 or sum(arr[:-1]) == 0:
         return "YES"
+    if len(arr) == 2:
+        return "NO"
     i = 0
     j = len(arr) - 1
     links = arr[i]
@@ -64,6 +66,7 @@ input:
 ------
 3
 1 4 1
+------
 3
 1 5 1
 1
