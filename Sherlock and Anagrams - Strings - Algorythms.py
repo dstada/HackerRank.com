@@ -8,7 +8,7 @@ def sherlockAndAnagrams(s):
             combs.append(s[i:j])
     print(combs)
     for i in range(len(combs) - 1):
-        if sorted(combs[i]) ==  combs[i+1]:
+        if sorted(combs[i]) == sorted(combs[i+1]):
             print("Gelijk")
     return ""
 
