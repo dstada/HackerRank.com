@@ -4,6 +4,7 @@ import re
 
 def sherlockAndAnagrams(s):
     combs = []
+    anagrams = 0
     for i in range(len(s)+1):       # Make all possible combinations
         for j in range(i+1, len(s)+1):
             print(s[i:j])           # Deze substring bekijken
@@ -16,13 +17,20 @@ def sherlockAndAnagrams(s):
     print(combs_sorted)
     # Tel het aantal gelijken:
     tot = 0
-    count_list = list(collections.Counter(('5', '5', '4', '5')).items())
-    [('5', 3), ('4', 1)]
+    # poging om iets te doen met Counter:
+    # print(collections.Counter(combs_sorted))
+    # count_list = list(collections.Counter(combs_sorted).items())
+    # print(count_list)
+
+    while len(combs_sorted) > 0:
+        poss = combs_sorted.count(combs_sorted[0])
+        anagrams += combs_sorted.count(combs_sorted[0])
+        combs_sorted.remove(combs_sorted[0])
+    print(anagrams)
 
     # for comb in combs_sorted:
     #     print("comb: {}".format(comb))      # Huidig element
     #     print(combs_sorted.count(comb))
-
 
     # if combs_sorted[0] in combs_sorted:
     #     print("HKHKJHKJHKHKHJ")
