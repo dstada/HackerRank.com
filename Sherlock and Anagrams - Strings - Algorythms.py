@@ -1,3 +1,4 @@
+import collections
 import re
 
 
@@ -14,12 +15,22 @@ def sherlockAndAnagrams(s):
         combs_sorted.append(sorted(comb))
     print(combs_sorted)
     # Tel het aantal gelijken:
+    tot = 0
+    count_list = list(collections.Counter(('5', '5', '4', '5')).items())
+    [('5', 3), ('4', 1)]
+
+    # for comb in combs_sorted:
+    #     print("comb: {}".format(comb))      # Huidig element
+    #     print(combs_sorted.count(comb))
+
+
     # if combs_sorted[0] in combs_sorted:
     #     print("HKHKJHKJHKHKHJ")
     # for i in range(len(combs_sorted)):
     print(combs_sorted.count(combs_sorted[0]))
     if combs_sorted.count(combs_sorted[0]) == 2:
         print("Twee keer!")
+
 
     print(len(combs_sorted))
     for i in range(len(combs) - 1):
