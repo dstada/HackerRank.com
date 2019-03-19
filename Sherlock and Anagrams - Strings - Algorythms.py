@@ -22,31 +22,17 @@ def sherlockAndAnagrams(s):
     # count_list = list(collections.Counter(combs_sorted).items())
     # print(count_list)
 
-    while len(combs_sorted) > 0:
+    while len(combs_sorted) > 1:
         poss = combs_sorted.count(combs_sorted[0])
-        anagrams += combs_sorted.count(combs_sorted[0])
-        combs_sorted.remove(combs_sorted[0])
-    print(anagrams)
+        print("poss: {}".format(poss))
+        if poss > 1:
+            anagrams += int((poss*(poss-1))/2)
+        # Nu deze anagrams eruit gooien:
+        combs_sorted = list(filter(combs_sorted[0].__ne__, combs_sorted))
+        # combs_sorted.remove(combs_sorted[0])
+    print("Aantal anagrams: {}".format(anagrams))
 
-    # for comb in combs_sorted:
-    #     print("comb: {}".format(comb))      # Huidig element
-    #     print(combs_sorted.count(comb))
-
-    # if combs_sorted[0] in combs_sorted:
-    #     print("HKHKJHKJHKHKHJ")
-    # for i in range(len(combs_sorted)):
-    print(combs_sorted.count(combs_sorted[0]))
-    if combs_sorted.count(combs_sorted[0]) == 2:
-        print("Twee keer!")
-
-
-    print(len(combs_sorted))
-    for i in range(len(combs) - 1):
-        print(combs[i])
-        print(sorted(combs[i]))
-        if sorted(combs[i]) == sorted(combs[i+1]):
-            print("Gelijk")
-    return ""
+   return anagrams
 
 
 if __name__ == '__main__':
@@ -72,6 +58,15 @@ cdcd
 
 Output 2
 5
+
+Input 3:
+2
+abba
+abcd
+
+output 3:
+4
+0
 
 https://www.hackerrank.com/challenges/sherlock-and-anagrams/problem?h_r=internal-search
 
