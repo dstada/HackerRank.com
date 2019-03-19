@@ -5,34 +5,20 @@ import re
 def sherlockAndAnagrams(s):
     combs = []
     anagrams = 0
-    for i in range(len(s)+1):       # Make all possible combinations
+    for i in range(len(s)+1):
         for j in range(i+1, len(s)+1):
-            print(s[i:j])           # Deze substring bekijken
             combs.append(s[i:j])
-    print(combs)
-    # Maak nu list met sorted combs:
+
     combs_sorted = []
     for comb in combs:
         combs_sorted.append(sorted(comb))
-    print(combs_sorted)
-    # Tel het aantal gelijken:
-    tot = 0
-    # poging om iets te doen met Counter:
-    # print(collections.Counter(combs_sorted))
-    # count_list = list(collections.Counter(combs_sorted).items())
-    # print(count_list)
 
     while len(combs_sorted) > 1:
         poss = combs_sorted.count(combs_sorted[0])
-        print("poss: {}".format(poss))
         if poss > 1:
             anagrams += int((poss*(poss-1))/2)
-        # Nu deze anagrams eruit gooien:
         combs_sorted = list(filter(combs_sorted[0].__ne__, combs_sorted))
-        # combs_sorted.remove(combs_sorted[0])
-    print("Aantal anagrams: {}".format(anagrams))
-
-   return anagrams
+    return anagrams
 
 
 if __name__ == '__main__':
@@ -73,21 +59,21 @@ https://www.hackerrank.com/challenges/sherlock-and-anagrams/problem?h_r=internal
 def sherlockAndAnagrams(s):
     for i in range(len(s)+1):       # Make all possible combinations
         for j in range(i+1, len(s)+1):
-            print(s[i:j])       # Deze substring bekijken
+            # print(s[i:j])       # Deze substring bekijken
             anagram = False
             for letter in s[i:j]:       # voor elke letter kijken waar hij voorkomt
-                print("Letter: {}".format(letter))
+                # print("Letter: {}".format(letter))
                 list = [m.start() for m in re.finditer(letter, s)]      # Indexen waar deze letter voorkomt in s
-                print("Komt voor in: {}".format(list))
-                print("index: {}:{}".format(i, j))
+                # print("Komt voor in: {}".format(list))
+                # print("index: {}:{}".format(i, j))
                 list_substring = [x for x in range(i, j)]       # De indexen van de substring
                 diff = set(list) - set(list_substring)          # Waar letter buiten de substring voorkomt
                 if len(diff) > 0:
-                    print("komt buiten de substring voor")
+                    # print("komt buiten de substring voor")
                     anagram = True
                     break
-                print(diff)
-            print('==================')
+                # print(diff)
+            # print('==================')
     return ""
 
 """
