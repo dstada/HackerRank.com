@@ -5,8 +5,13 @@ def steadyGene(gene):
     n_4 = int(len(gene)/4)
     print(n_4)
     print(gene)
+    cs = gene.count("C")
+    ts = gene.count("T")
+    gs = gene.count("G")
+    aas = gene.count("A")
+    print(cs, ts, aas, gs)
 
-    return "blabla"
+    return ""
 
 
 
@@ -18,6 +23,12 @@ if __name__ == '__main__':
 
 
 """"
+Input:
+ACTGAAAG
+
+Output:
+2
+
 Input:
 8  
 GAAATAAA

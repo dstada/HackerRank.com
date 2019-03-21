@@ -7,12 +7,15 @@ k = int(input())        # number of indices
 
 nbr = s.count("a")      # number of a's in string
 l = list(combinations(s, k))    # list of all combinations
-# print(l)
 total = 0
-for i in range(len(l)):
-    if "a" in l[i][0] or "a" in l[i][1]:
-        total += 1
-print(total / len(l))
+
+if k > n - nbr:
+    print(1.0)
+else:
+    for i in range(len(l)):
+        if "a" in l[i]:     # count number of a's in all combinations
+            total += 1
+    print(total / len(l))   # percentage of elements with an a in it
 
 
 """
@@ -25,5 +28,13 @@ a a c d
 
 Output:
 0.8333
+
+INput:
+9
+a b c a d b z e o
+4
+
+Output:
+0.722222222222
 
 """
