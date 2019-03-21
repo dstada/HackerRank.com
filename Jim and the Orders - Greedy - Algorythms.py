@@ -1,7 +1,7 @@
 
 def jimOrders(orders):
     orders = list(enumerate(orders))    # Maakt tuples van de list-elementen, en nummert die.
-    orders = sorted(orders, key=lambda x: x[1][0] + x[1][1]) # Sorteer op de som van de twee elementen van elke tuple
+    orders = sorted(orders, key=lambda x: x[1][0] + x[1][1])    # Sorteer op de som van de twee elementen van elke tuple
     return [elem[0] + 1 for elem in orders]     # Return een list van de elementen van orders-array + 1
 
 
