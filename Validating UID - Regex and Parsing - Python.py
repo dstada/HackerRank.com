@@ -1,16 +1,19 @@
 import re
 
 for _ in range(int(input())):
-    if bool(re.match(r'^[7-9]{1}\d{9}$', input())) is True:
+    if bool(re.match(r'^(?=(?:[a-z\d]*[A-Z]){2})(?=(?:.*\d){3})(?:([a-zA-Z\d])(?!.*\1)){10}$', input())) is True:
         print("Valid")
     else:
         print("Invalid")
 
 
-
-
-
 """
+^: Start
+(?=(?:[a-z\d]*[A-Z]){2}): Lookahead to assert that we have at least 2 uppercase alphabets
+(?=(?:\D*\d){3}): Lookahead to assert that we have at least 3 digits
+(?:([a-zA-Z\d])(?!.*\1)){10}: Match exact 10 alphanumeric characters. Negative lookahead is to assert that we don't have anything repeating anywhere.
+$: End
+
 Input:
 2
 B1CD102354
