@@ -2,6 +2,12 @@
 
 
 def toys(w):
+    w.sort()
+    for i in range(len(w)):
+        teller = 1
+        min = w[i]
+        if w[i+1] - w[i] <= 4 and teller <= 4:
+
 
 
 
