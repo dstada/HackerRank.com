@@ -2,12 +2,19 @@
 
 
 def toys(w):
-    w.sort()
-    for i in range(len(w)):
-        teller = 1
-        min = w[i]
-        if w[i+1] - w[i] <= 4 and teller <= 4:
-
+    w_set = set(w)
+    print(w_set)
+    i = 0
+    units = 0
+    while i < len(w):
+        unit = []
+        unit.append(w[i])
+        if max(unit) - min(unit) <= 4:
+            i += 1
+        else:
+            units += 1
+            break
+    print(units)
 
 
 
