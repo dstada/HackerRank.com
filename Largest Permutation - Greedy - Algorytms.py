@@ -3,7 +3,10 @@ def largestPermutation(k, arr):
     # print(arr.index(max(arr)))
     for i in range(len(arr) - 1):
         print(arr[i+1:])
-        if arr[i] < min(arr[i+1:]):
+        if arr[i] < min(arr[i+1:]):     # Kijk of er grotere waardes in de rest zitten
+            # Zoek de index van de grootste waarde
+            indx = arr.index(max(arr[i+1:]))
+            print(indx)
             print("hallo")
 
     return ""
