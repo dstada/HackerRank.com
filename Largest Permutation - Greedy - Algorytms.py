@@ -2,7 +2,9 @@
 def largestPermutation(k, arr):
     # print(arr.index(max(arr)))
     for i in range(len(arr) - 1):
-        print(arr[i])
+        print(arr[i+1:])
+        if arr[i] < min(arr[i+1:]):
+            print("hallo")
 
     return ""
 
