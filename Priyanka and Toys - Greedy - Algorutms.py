@@ -1,11 +1,9 @@
 
 
-
 def toys(w):
-    w_set = set(w)
-    print(w_set)
+    w = list(set(w))
     i = 0
-    units = 0
+    containers = 0
     while i < len(w):
         unit = []
         unit.append(w[i])
