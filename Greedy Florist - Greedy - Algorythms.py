@@ -1,6 +1,10 @@
 
 
 def getMinimumCost(k, c):
+    i =
+    while i <= len(c):
+
+    for i in range(k + 1):
 
 
 
