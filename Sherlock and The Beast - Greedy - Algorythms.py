@@ -1,3 +1,12 @@
+"""
+t = int(input().strip())
+for a0 in range(t):
+    n = int(input().strip())
+    k0 = 6*n % 15
+    k = k0 + 15*((n-k0)//15)
+    print( "-1" if k0 > n else k*"5" + (n-k)*"3" )
+"""
+
 
 def decentNumber(n):
     if n < 3:               # n moet 3 of meer zijn
@@ -10,12 +19,13 @@ def decentNumber(n):
         # Eerst alle posities vullen met 5'en
         # bijv. 11 --> 55555555555
         for i in range(1, n//5 + 1):
-            print(i)
             # Vul op vanaf rechts met steeds 5 x een 3, en check of rest deelbaar is door 3:
             if (n - i * 5) % 3 == 0:    # Als van n x keer 5 3'en afgaan, is dan de rest deelbaar door 5?
                 outpt = ((n - i * 5) // 3) * "555" + i * "33333"
-                print(outpt)
+                return outpt
                 break
+    else:
+        return -1
 
 
 if __name__ == '__main__':
