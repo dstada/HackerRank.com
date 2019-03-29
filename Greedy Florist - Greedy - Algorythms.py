@@ -1,11 +1,13 @@
 
 
 def getMinimumCost(k, c):
-    i =
-    while i <= len(c):
-
-    for i in range(k + 1):
-
+    c = sorted(c, reverse=True)
+    costs = 0
+    teller = 0
+    for i in range(0, len(c)):
+        costs += (i // k + 1) * c[i]
+        # print("Costs nu: {}".format(costs))
+    return costs
 
 
 if __name__ == '__main__':
