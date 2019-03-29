@@ -11,7 +11,8 @@ def counterGame(n):
                 print(i)
                 if ((i & (i - 1)) == 0) and i > 0:  # Factor 2 getal gevonden
                     n -= i
-                    break
+        if n == 1:
+            print("Nu is i 1")
     print(n)
 
 
