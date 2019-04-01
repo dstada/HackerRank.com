@@ -24,7 +24,6 @@ if __name__ == '__main__':
         print(result)
 
 
-
 """https://www.hackerrank.com/challenges/counter-game/problem
 
 
