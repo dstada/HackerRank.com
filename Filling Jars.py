@@ -4,22 +4,10 @@ def solve(n, operations):
     # n = nr of jars
     # m = nr of rounds
     # operations s bijv. [[1, 2, 100], [2, 5, 100], [3, 4, 100]]
-    # jars = [[] for i in range(n)]
-    jars = [0 for i in range(n)]
-    van = 0
-    tot = 0
+    total = 0
     for item in operations:        # voor elk element van operations
-        van = item[0]
-        tot = item[1]
-        print("van {} tot {}".format(van, tot))
-        for i in range(van - 1, tot):
-            print(i)
-            print(item[2])
-            print(type(item[2]))
-            print(jars[i])
-            jars[i] += item[2]
-    print(jars)
-    print(sum(jars) / len(jars))
+        total += (item[1] - item[0] + 1) * item[2]
+    return int(total / n)
 
 
 if __name__ == '__main__':
@@ -30,6 +18,7 @@ if __name__ == '__main__':
     for _ in range(m):
         operations.append(list(map(int, input().rstrip().split())))
     result = solve(n, operations)
+    print(result)
 
 
 """
@@ -43,4 +32,19 @@ Input:
 3 4 100
 
 Output: 160
+
+Gives time-out:
+
+def solve(n, operations):
+    # n = nr of jars
+    # m = nr of rounds
+    # operations s bijv. [[1, 2, 100], [2, 5, 100], [3, 4, 100]]
+    jars = [0 for i in range(n)]
+    for item in operations:        # voor elk element van operations
+        van = item[0]
+        tot = item[1]
+        for i in range(van - 1, tot):
+            jars[i] += item[2]
+    return int(sum(jars) / n)
+
 """
