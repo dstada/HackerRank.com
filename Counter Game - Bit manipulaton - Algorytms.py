@@ -1,27 +1,24 @@
 
-import math
-
 
 def counterGame(n):     # Louise starts first
     arr = [1, 2]
-    while arr[-1] < n:
+    while arr[-1]*2 <= n:
         arr.append(arr[-1]*2)
-    print(arr)
+    arr = list(reversed(arr))
     teller = 0
-    while n > 1:        # Zolang 1 nog niet is bereikt het volgende
+    while n > 1:        # As long as n isn't 1
         teller += 1
-        if n in arr:    # als factor2
+        if n in arr:    # factor2
             n /= 2
-        else:                   # Geen factor van 2
-    #         for i in range(n - 1, 2, -1):       # Zoek eerstvolgende factor 2 getal, terugtellend.
-    #             if (i & (i - 1)) == 0:  # Factor 2 getal gevonden
-    #                 n -= i                          # Van n nu de kleinere factor2 aftrekken
-    # if teller % 2 == 0:
-    #     return "Richard"
-    # else:
-    #     return "Louise"
-
-
+        else:           # No factor2
+            i = 0
+            while arr[i] > n:       # As long as n > actual element
+                i += 1          # Let's check next element
+            n -= arr[i]         # Subtract found factor 2
+    if teller % 2 == 0:         # find the player who has got a 1
+        return "Richard"
+    else:
+        return "Louise"
 
 
 if __name__ == '__main__':
@@ -33,24 +30,6 @@ if __name__ == '__main__':
 
 
 """https://www.hackerrank.com/challenges/counter-game/problem
-
-
-def counterGame(n):     # Louise starts first
-    teller = 0
-    while n > 1:        # Zolang 1 nog niet is bereikt het volgende
-        teller += 1
-        if (n & (n-1)) == 0:    # als factor2
-            n /= 2
-        else:                   # Geen factor van 2
-            for i in range(n - 1, 2, -1):       # Zoek eerstvolgende factor 2 getal, terugtellend.
-                if (i & (i - 1)) == 0:  # Factor 2 getal gevonden
-                    n -= i                          # Van n nu de kleinere factor2 aftrekken
-    if teller % 2 == 0:
-        return "Richard"
-    else:
-        return "Louise"
-
-
 
 input:
 1
