@@ -1,17 +1,12 @@
 
 import math
 
+
 def is_smart_number(num):
-    teller = 0
-    for i in range(1, num + 1):
-        if num % i == 0:
-            teller += 1
-    if teller % 2 == 0:
-        return False
-    else:
+    val = int(math.sqrt(num))
+    if val * val == num:
         return True
-
-
+    return False
 
 
 for _ in range(int(input())):
@@ -39,24 +34,22 @@ NO
 NO
 YES
 
-
+--------------------------------------
     val = int(math.sqrt(num))
     if num / val == 1:
         return True
     return False
-    
-    
-    
+---------------------------------------
+
 def is_smart_number(num):
     teller = 0
     for i in range(1, num + 1):
         if num % i == 0:
             teller += 1
     if teller % 2 == 0:
-        return "NO"
+        return False
     else:
-        return "YES"
-
+        return True
 
 for _ in range(int(input())):
     num = int(input())
