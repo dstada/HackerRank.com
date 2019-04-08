@@ -5,15 +5,17 @@ def workbook(n, k, arr):
     # k = max. aantal problems per bladzijde
     # arr = aantal problems per hoofdstuk
     specials = 0
-    bladzijde = 1
+    bladzijde = 0
     for i in range(len(arr)):       # elk hoofdstuk afwerken:
-        for j in range(1, arr[i] + 1):     # elk probleem langs:
-            print("problem: {}".format(j))
-            if j + 1 > k:           # als probleemteller > aantal problemen p/blz:
-                print("Volgende blz.")
-                bladzijde += 1      # bladzijde-teller ophogen
-            print("Blz: {}".format(bladzijde))
-    print(bladzijde)
+        bladzijde += 1
+        print("sowieso nieuwe blz. Nu: {}".format(bladzijde))
+        for j in range(arr[i]):     # elk probleem langs:
+            print("problem: {}".format(j + 1))
+            # if j + 1 > k:           # als probleemteller > aantal problemen p/blz:
+            #     print("Volgende blz.")
+            #     bladzijde += 1      # bladzijde-teller ophogen
+            # print("Blz: {}".format(bladzijde))
+    # print(bladzijde)
 
 
 
