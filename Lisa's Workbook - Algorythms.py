@@ -1,25 +1,22 @@
 # https://www.hackerrank.com/challenges/lisa-workbook/problem
 
+
 def workbook(n, k, arr):
-    # n = aantal hoofdstukken
-    # k = max. aantal problems per bladzijde
-    # arr = aantal problems per hoofdstuk
     specials = 0
-    bladzijde = 0
+    bladzijde = 1
     for i in range(len(arr)):       # elk hoofdstuk afwerken:
-        bladzijde += 1
-        print("sowieso nieuwe blz. Nu: {}".format(bladzijde))
+        print("---- blz: {}".format(bladzijde))
         for j in range(arr[i]):     # elk probleem langs:
-            print("problem: {}".format(j + 1))
-            # if j + 1 > k:           # als probleemteller > aantal problemen p/blz:
-            #     print("Volgende blz.")
-            #     bladzijde += 1      # bladzijde-teller ophogen
-            # print("Blz: {}".format(bladzijde))
-    # print(bladzijde)
-
-
-
-
+            print("j+1: {} - k: {}".format(j+1, k))
+            if (j + 1) % k == 0:           # als probleemteller > aantal problemen p/blz:
+                bladzijde += 1      # bladzijde-teller ophogen
+                print("Volgende blz. Nu: {}".format(bladzijde))
+            print("blz: {} - problem: {}".format(bladzijde, j+1))
+            if bladzijde == j + 1:
+                specials += 1
+                print(">>>> specials: {}".format(specials))
+        bladzijde += 1
+    print(bladzijde)
 
 
 if __name__ == '__main__':
