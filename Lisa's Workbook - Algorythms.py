@@ -5,7 +5,7 @@ def workbook(n, k, arr):
     specials = 0
     bladzijde = 1
     for a in arr:       # for each chapter
-        for i in range(1, a+1):   # for each problem in the chapter
+        for i in range(1, a+1):     # for each problem in the chapter
             if i == bladzijde:      # problem number same as page number
                 specials += 1
             if i % k == 0:          # reached the max nbr of problems on the page
