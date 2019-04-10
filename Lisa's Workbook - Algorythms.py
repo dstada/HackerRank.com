@@ -4,19 +4,15 @@
 def workbook(n, k, arr):
     specials = 0
     bladzijde = 1
-    for i in range(len(arr)):       # elk hoofdstuk afwerken:
-        print("---- blz: {}".format(bladzijde))
-        for j in range(arr[i]):     # elk probleem langs:
-            print("j+1: {} - k: {}".format(j+1, k))
-            if (j + 1) % k == 0:           # als probleemteller > aantal problemen p/blz:
-                bladzijde += 1      # bladzijde-teller ophogen
-                print("Volgende blz. Nu: {}".format(bladzijde))
-            print("blz: {} - problem: {}".format(bladzijde, j+1))
-            if bladzijde == j + 1:
+    for a in arr:       # for each chapter
+        for i in range(1, a+1):   # for each problem in the chapter
+            if i == bladzijde:      # problem number same as page number
                 specials += 1
-                print(">>>> specials: {}".format(specials))
-        bladzijde += 1
-    print(bladzijde)
+            if i % k == 0:          # reached the max nbr of problems on the page
+                bladzijde += 1
+        if a % k != 0:              # All problems on the pages. If place left: new page.
+            bladzijde += 1
+    return specials
 
 
 if __name__ == '__main__':
