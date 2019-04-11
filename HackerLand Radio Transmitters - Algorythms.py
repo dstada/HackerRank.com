@@ -1,9 +1,12 @@
 # https://www.hackerrank.com/challenges/hackerland-radio-transmitters/problem
+# Medium | Score: 25
 
 
 def hackerlandRadioTransmitters(x, k):
      print("Huizen op: {}".format(x))
      print("Breedte zender: {}".format(k))
+     x.sort()
+     print(x)
 
 
 if __name__ == '__main__':
