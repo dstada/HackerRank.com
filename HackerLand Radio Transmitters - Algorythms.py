@@ -7,6 +7,8 @@ def hackerlandRadioTransmitters(x, k):
      print("Breedte zender: {}".format(k))
      x.sort()
      print(x)
+     nr_of_transmitters = 0
+
 
 
 if __name__ == '__main__':
