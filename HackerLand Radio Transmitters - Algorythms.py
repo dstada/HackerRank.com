@@ -10,7 +10,7 @@ def hackerlandRadioTransmitters(x, k):
         if house > lasthouse:   # huidige huis verder dan bereik van transmitter
             transmitters += 1   # aantal transmitters wort groter
             # print("transmitters nu: {}".format(transmitters))
-            lasthouse = house + 2 * k   # bereik transmitter schuift nu op
+            lasthouse = house + 2 * k   # bereik transmitter schuift nu op!
     return transmitters
 
 
