@@ -3,12 +3,15 @@
 
 
 def hackerlandRadioTransmitters(x, k):
-     print("Huizen op: {}".format(x))
-     print("Breedte zender: {}".format(k))
-     x.sort()
-     print(x)
-     nr_of_transmitters = 0
-
+    x.sort()
+    transmitters = 0
+    lasthouse = 0
+    for house in x:
+        if house > lasthouse:   # huidige huis verder dan bereik van transmitter
+            transmitters += 1   # aantal transmitters wort groter
+            # print("transmitters nu: {}".format(transmitters))
+            lasthouse = house + 2 * k   # bereik transmitter schuift nu op
+    return transmitters
 
 
 if __name__ == '__main__':
