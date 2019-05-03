@@ -64,22 +64,23 @@ for i in range(9):
         break
 
 # Vertical check:
-for j in range(9):
-    temp_vert = []
-    for k in range(9):
-        if solution[k][j] in temp_vert:
-            sudoku = False
-            break
-        temp_vert.append(solution[k][j])
+# for j in range(9):
+#     temp_vert = []
+#     for k in range(9):
+#         if solution[k][j] in temp_vert:
+#             sudoku = False
+#             break
+#         temp_vert.append(solution[k][j])
 
 # Block check:
-for l in range(0, 7, 3):
-    for k in range(0, 7, 3):
-        print("l: {} k: {} dus waarde: {}".format(l, k, solution[l][k]))
+for x in range(0, 7, 3):
+    for y in range(0, 7, 3):
+        print("x: {} y: {} dus waarde: {}".format(x, y, solution[x][y]))
         temp_block = []
         for m in range(3):
             for n in range(3):
-                print(m, n)
+                # print(m, n)
+                print(x + m, y + n)
 
         # temp_block.append(solution[][])
         # print(solution[]][])
