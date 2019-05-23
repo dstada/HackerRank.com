@@ -77,8 +77,9 @@ for l in range(0, 7, 3):    # Each top left cel
         for m in range(3):
             for n in range(3):
                 print(m, n)
-        temp_block.append(solution[m][n])
-        print(solution[m][n])
+                temp_block.append(solution[m][n])
+                print(solution[m][n])
+        print(temp_block)
 
 print(check_sudoku(solution))
 
