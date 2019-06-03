@@ -1,40 +1,58 @@
 """
-Input:
+https://3dwarehouse.sketchup.com/search/?q=3d%20surface%20area%20problem%20hackerrank%20com
+
+https://www.hackerrank.com/challenges/3d-surface-area/problem
+
+input:
+1 1
+1
+
+output: 6
+
+input:
 3 3
 1 3 4
 2 2 3
 1 2 4
 
-Output
-60
+output: 60
+
+input:
+3 4
+1 3 4 2
+2 2 3 1
+1 2 4 1
+
+output: 70
+
 """
 
 def surfaceArea(A):
-    print(A)
     surfaces = 0
-    for i in range(len(A)): # Voor elke regel invoer:
+    if A == [[1]]:
+        return 6
+
+    for i in range(len(A)): # For every rule:
         if i == 0 or i == len(A)-1:
-            print("voor/achterkant: {}".format(sum(A[i])))
             surfaces += sum(A[i])
-        for j in range(len(A[i])):  # Voor elke kolom in de regel:
-            print(A[i][j])
-            if j == 0 or j == len(A[i])-1: # De vlakken aan rechter- en linkerkant
+        print("voor/achter erbij: {}".format(surfaces))
+        for j in range(len(A[i])):  # For every column:
+            if j == 0 or j == len(A[i])-1: # Left and right:
                 surfaces += A[i][j]
-            surfaces += 2   # Voor boven- en onderkant
-            if j > 0:   # alleen 2e t/m rest
-                # Absolute verschil met vorige:
-                surfaces = surfaces + abs(A[i][j] - A[i][j-1])
-        print(surfaces)
+                print("l en r: {}".format(surfaces))
+            surfaces += 2   # Bottom and top:
+            print("onder/boven erbij: {}".format(surfaces))
+            if j > 0:
+                # Absolute difference with previous column:
+                surfaces += abs(A[i][j] - A[i][j-1])
+                print("l/r tussenin: {}".format(surfaces))
+    print(surfaces)
     # Areas between front and back:
-    # for k in range(len(A)):
-    print("------------------------")
-
     for l in range(len(A[0])):
-        print("l: {}".format(l))
         for m in range(len(A)):
-            print("m: {}".format(m))
-
-
+            if m > 0:
+                surfaces += abs(A[m][l] - A[m-1][l])
+    return surfaces
 
 
 if __name__ == '__main__':
@@ -42,7 +60,6 @@ if __name__ == '__main__':
     H = int(HW[0])
     W = int(HW[1])
     A = []
-
     for _ in range(H):
         A.append(list(map(int, input().rstrip().split())))
     result = surfaceArea(A)
