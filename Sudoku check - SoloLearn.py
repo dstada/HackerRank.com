@@ -40,6 +40,22 @@ Output: true
 #     [5, 3, 9, 6, 8, 2, 1, 4, 7]
 #   ]
 
+
+def Check_Sudoku(matrix):
+    sudoku = True
+    #  Horizontal check:
+    out = True      # In order to get out of two loops
+    for i in range(9):
+        # print(solution[i])
+        # Maak set en tel. Moeten 9 unieke waarden zijn.
+        if len(set(matrix[i])) != 9:
+            sudoku = False
+            out = False
+        if not out:
+            break
+    return sudoku
+
+
 solution = [
     [3, 5, 2, 9, 1, 8, 6, 7, 4],
     [8, 9, 7, 2, 4, 6, 5, 1, 3],
@@ -51,17 +67,8 @@ solution = [
     [2, 7, 8, 4, 9, 1, 3, 6, 5],
     [5, 3, 9, 6, 8, 2, 1, 4, 7]
   ]
-sudoku = True
-#  Horizontal check:
-out = True      # In order to get out of two loops
-for i in range(9):
-    print(solution[i])
-    # Maak set en tel. Moeten 9 unieke waarden zijn.
-    if len(set(solution[i])) != 9:
-        sudoku = False
-        out = False
-    if not out:
-        break
+
+print(Check_Sudoku(solution))
 
 # Vertical check:
 # for j in range(9):
@@ -73,17 +80,18 @@ for i in range(9):
 #         temp_vert.append(solution[k][j])
 
 # Block check:
-for x in range(0, 7, 3):
-    for y in range(0, 7, 3):
-        print("x: {} y: {} dus waarde: {}".format(x, y, solution[x][y]))
-        temp_block = []
-        for m in range(3):
-            for n in range(3):
-                # print(m, n)
-                print(x + m, y + n)
+# for x in range(0, 7, 3):
+#     for y in range(0, 7, 3):
+#         print("x: {} y: {} dus waarde: {}".format(x, y, solution[x][y]))
+#         temp_block = []
+#         for m in range(3):
+#             for n in range(3):
+#                 temp_block.append(solution[x+m][y+n])
+#         # print(temp_block)
+#         if len(set(temp_block)) != 9:
+#             out = False
+#     if not out:
+#         break
 
-        # temp_block.append(solution[][])
-        # print(solution[]][])
 
-
-print(sudoku)
+# print(sudoku)

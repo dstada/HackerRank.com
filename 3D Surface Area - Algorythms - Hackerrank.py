@@ -29,13 +29,15 @@ output: 70
 
 def surfaceArea(A):
     surfaces = 0
+    # len(A) is aantal regels, dus eerste ingevoerde waarde
     if A == [[1]]:
         return 6
 
     for i in range(len(A)): # For every rule:
         if i == 0 or i == len(A)-1:
             surfaces += sum(A[i])
-        print("voor/achter erbij: {}".format(surfaces))
+            print("voor/achter erbij: {}".format(surfaces))
+
         for j in range(len(A[i])):  # For every column:
             if j == 0 or j == len(A[i])-1: # Left and right:
                 surfaces += A[i][j]
