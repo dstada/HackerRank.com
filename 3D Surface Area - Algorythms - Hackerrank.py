@@ -24,7 +24,6 @@ input:
 1 2 4 1
 
 output: 70
-
 """
 
 def surfaceArea(A):
