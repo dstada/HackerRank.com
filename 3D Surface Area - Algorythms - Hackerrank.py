@@ -44,35 +44,24 @@ Output: 34
 
 def surfaceArea(A):
     surfaces = 0
-    # len(A) is aantal regels, dus eerste ingevoerde waarde
-    if len(A[0]) == 1:
-        print("len(A) == 1")
-
-
     for i in range(len(A)): # For every rule:
-        # Voor- en achtervlakken
+        # Front and backside surfaces
         if len(A) == 1:
             surfaces += 2 * sum(A[i])
-            print("voor/achter dubbel want slechts 1 rij: {}".format(surfaces))
         else:
-            if i == 0 or i == len(A)-1:     # De vlakken van eerste en laatste regel
+            if i == 0 or i == len(A)-1:     # Surfaces of first and last line
                 surfaces += sum(A[i])
-            print("voor/achter erbij: {}".format(surfaces))
-
         for j in range(len(A[i])):  # For every column:
-            if len(A[0]) == 1:      # lengte van de rij slechts 1
-                surfaces += 2 * A[i][j]     # Komt maar een keer langs, dus 2x tellen.
+            if len(A[0]) == 1:      # Length of row only 1
+                surfaces += 2 * A[i][j]     # Count 2 times, because this line is only done 1 time
             else:
                 if j == 0 or j == len(A[i])-1: # Left and right:
                     surfaces += A[i][j]
-                    print("l en r: {}".format(surfaces))
             if A[i][j] > 0:
                 surfaces += 2   # Bottom and top:
-                print("{} - onder/boven erbij: {}".format(A[i][j],surfaces))
             if j > 0:
                 # Absolute difference with previous column:
                 surfaces += abs(A[i][j] - A[i][j-1])
-                print("l/r tussenin: {}".format(surfaces))
     # Areas between front and back:
     for l in range(len(A[0])):
         for m in range(len(A)):
