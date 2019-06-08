@@ -4,6 +4,16 @@ https://3dwarehouse.sketchup.com/search/?q=3d%20surface%20area%20problem%20hacke
 https://www.hackerrank.com/challenges/3d-surface-area/problem
 
 input:
+6 1
+1
+1
+1
+1
+1
+1
+
+
+input:
 1 1
 1
 
@@ -24,30 +34,34 @@ input:
 1 2 4 1
 
 output: 70
+
+input:
+1 6
+0 1 2 3 2 1
+
+Output: 34
 """
 
 def surfaceArea(A):
     surfaces = 0
-    # len(A) is aantal regels, dus eerste ingevoerde waarde
-    if A == [[1]]:
-        return 6
-
     for i in range(len(A)): # For every rule:
-        if i == 0 or i == len(A)-1:
-            surfaces += sum(A[i])
-            print("voor/achter erbij: {}".format(surfaces))
-
+        # Front and backside surfaces
+        if len(A) == 1:
+            surfaces += 2 * sum(A[i])
+        else:
+            if i == 0 or i == len(A)-1:     # Surfaces of first and last line
+                surfaces += sum(A[i])
         for j in range(len(A[i])):  # For every column:
-            if j == 0 or j == len(A[i])-1: # Left and right:
-                surfaces += A[i][j]
-                print("l en r: {}".format(surfaces))
-            surfaces += 2   # Bottom and top:
-            print("onder/boven erbij: {}".format(surfaces))
+            if len(A[0]) == 1:      # Length of row only 1
+                surfaces += 2 * A[i][j]     # Count 2 times, because this line is only done 1 time
+            else:
+                if j == 0 or j == len(A[i])-1: # Left and right:
+                    surfaces += A[i][j]
+            if A[i][j] > 0:
+                surfaces += 2   # Bottom and top:
             if j > 0:
                 # Absolute difference with previous column:
                 surfaces += abs(A[i][j] - A[i][j-1])
-                print("l/r tussenin: {}".format(surfaces))
-    print(surfaces)
     # Areas between front and back:
     for l in range(len(A[0])):
         for m in range(len(A)):
