@@ -30,19 +30,41 @@ import re
 import sys
 
 # Complete the flippingBits function below.
+
+def dec_to_bin(i):
+    if i == 0:
+        return "0"
+    s = ''
+    while i:
+        if i & 1 == 1:
+            s = "1" + s
+        else:
+            s = "0" + s
+        i //= 2
+    return s
+
+def bin_to_dec(bits):
+    n = 0
+    for b in bits:
+        n = (n << 1) | (b == '1')
+    return n
+
 def flippingBits(n):
+    bin = dec_to_bin(n)
+    new_bin = ''
+    for x in range(32-len(bin)):
+        new_bin += '1'
+    for i in range(len(bin)):
+        if bin[i] == '0':
+            new_bin += '1'
+        else:
+            new_bin += '0'
+    return bin_to_dec(new_bin)
 
 
 if __name__ == '__main__':
-    fptr = open(os.environ['OUTPUT_PATH'], 'w')
-
     q = int(input())
-
     for q_itr in range(q):
         n = int(input())
-
         result = flippingBits(n)
-
-        fptr.write(str(result) + '\n')
-
-    fptr.close()
+        print(result)
