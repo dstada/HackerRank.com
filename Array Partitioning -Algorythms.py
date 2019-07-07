@@ -34,3 +34,4 @@ print(arr2)
 lijst = list(itertools.combinations(arr, 3))
 print(lijst)
 
+
