@@ -16,6 +16,8 @@ Output:
 [20, 5, 2]
 1
 (The sum of the first subarray is 26, the sum of the second subarray is 27, the difference is 1.)
+
+https://code.sololearn.com/c2aIBKvuMA46/#py
 """
 
 
