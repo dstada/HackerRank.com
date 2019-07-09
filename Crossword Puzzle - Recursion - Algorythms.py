@@ -67,6 +67,14 @@ if __name__ == '__main__':
     # print(result)
 
 """
+>>> from itertools import permutations
+>>> perm = permutations([1,2,3])
+>>> print(perm)
+<itertools.permutations object at 0x0404B960>
+>>> for i in list(perm):
+	print(i)
+
+
 Input            
 ++++++++++
 +------+++
