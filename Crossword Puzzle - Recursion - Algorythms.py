@@ -1,5 +1,4 @@
-"""
-https://www.hackerrank.com/challenges/crossword-puzzle/problem
+"""https://www.hackerrank.com/challenges/crossword-puzzle/problem
 """
 
 
@@ -8,25 +7,54 @@ def crosswordPuzzle(crossword, words):
     print(crossword)
     print("-------------")
     print(words)
+    woorden = words.split(";")
+    print(woorden)
+    for i in range(len(woorden)):
+        print(woorden[i])
+
+    # Horizontale woordvakken bepalen:
     for i in range(len(crossword)):
-        print(crossword[i])
+        # print(crossword[i])
         temp = []
         for j in range(0,10):
-            print(crossword[i][j])
+            # print(crossword[i][j])
             if crossword[i][j] == '-':
                 temp.append([i,j])
-        print("temp: {}".format(temp))
-
         if temp != [] and len(temp) > 1:
-            print("temp[0][1]: {}".format(temp[0][1]))
-            print("temp[0][laatste]: {}".format(temp[len(temp)-1][1]))
-            print(temp[len(temp)-1])
-            vakken.append(temp)
-
-        # if temp != [] and len(temp) > 1:
-        #     vakken.append(temp)
+            # Cellen moeten aansluitend zijn, anders kan er geen woord in:
+            if len(temp) == temp[len(temp)-1][1] - temp[0][1] + 1:
+                vakken.append(temp)
     print(vakken)
-    print(len(vakken))
+
+    # Verticale woordvakken bepalen:
+    for k in range(0,10):   # Voor elke kolom
+        temp2 = []
+        word = 0
+        for l in range(0,10):
+            if crossword[l][k] == '-':      # invulvakje en niet het laatste vakje
+                word += 1                   # leeg invulvakje
+                temp2.append([l,k])
+                if l == 9 and word > 1:
+                    vakken.append(temp2)
+                    temp2 = []
+                    word = 0
+            else:                           # geen leeg vakje
+                if word > 1:                # als er al eerder ruimte voor een woord was, dan wegschrijven in temp2
+                    vakken.append(temp2)    # tijdelijke lege vakken toevoegen aan vakken
+                temp2 = []              # temp2 weer leegmaken
+                word = 0                # teller weer op 0 voor evt. volgend woord
+        print(temp2)
+    print(vakken)
+    for x in vakken:    # print elk invulvak uit vakken:
+        print(x)
+        print(len(x))
+        for word in woorden:
+            print(word)
+            if len(word) == len(x):
+                print("gelijk!")
+                break
+            else:
+                print("NIET gelijk!")
 
 
 if __name__ == '__main__':
