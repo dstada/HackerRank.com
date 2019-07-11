@@ -50,23 +50,36 @@ else:       # n > 2
     try:
         while len(left) > 0:
             # Laagste twee van links naar rechts:
+            highest = 0
             for _ in range(2):
+                if min(left) >= highest:
+                    highest = min(left)
                 right.append(min(left))
                 left.remove(min(left))
-                moves += 1
+            moves += highest
+            print(moves)
+            print(left, right)
             # Laagste van rechts naar links:
+            moves += min(right)
             left.append(min(right))
             right.remove(min(right))
-            moves += 1
+            print(moves)
+            print(left, right)
             # Hoogste twee van links naar rechts:
+            highest = 0
             for _ in range(2):
+                if max(left) >= highest:
+                    highest = max(left)
                 right.append(max(left))
                 left.remove(max(left))
-                moves += 1
-            # Laagste van links naar rechts:
+            moves += highest
+            print(moves)
+            print(left, right)
+            # Laagste van rechts naar links:
+            moves += min(right)
             left.append(min(right))
             right.remove(min(right))
-            moves += 1
+            print(left, right)
     except ValueError:
         print("Moves: {}".format(moves))
 print(left, right)
