@@ -46,9 +46,9 @@ else:       # n > 2
                 switch.append(min(left))
                 left.remove(min(left))
             moves += highest
-            print(left, ">", switch)
+            print(left, ">", right)
 
-            print(moves)
+            # print(moves)
             switch = []
             # Laagste van rechts naar links:
             if len(left) == 0:
@@ -56,9 +56,8 @@ else:       # n > 2
             moves += min(right)
             left.append(min(right))
             right.remove(min(right))
-            print(left, right)
-            print(moves)
 
+            print(left, "<", right)
             # Hoogste twee van links naar rechts:
             if len(left) == 0:
                 break
@@ -69,8 +68,8 @@ else:       # n > 2
                 right.append(max(left))
                 left.remove(max(left))
             moves += highest
-            print(left, right)
-            print(moves)
+            print(left, ">", right)
+            # print(moves)
 
             # Laagste van rechts naar links:
             if len(left) == 0:
@@ -79,8 +78,6 @@ else:       # n > 2
             left.append(min(right))
             right.remove(min(right))
             # print(left, right)
-        print("Total time: {}".format(moves))
+        print("Total time: {} minutes".format(moves))
     except ValueError:
         pass
-        print("Moves: {}".format(moves))
-print(left, right)
