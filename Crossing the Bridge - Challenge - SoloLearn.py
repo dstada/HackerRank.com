@@ -21,21 +21,21 @@ left = []
 for i in range(n):
     left.append(i+1)
 right = []
-print(left)
+print(left, right)
 if n == 1:
     print("     1 >")
     print("           [1]")
-    print("Total time: 1")
+    print("Total time: 1 minute")
 elif n == 2:
     print("       1+2 >")
-    print("              [1, 2]")
-    print("Total time: 2")
+    print("             [1, 2]")
+    print("Total time: 2 minutes")
 else:       # n > 2
     moves = 0
     switch = []
     try:
         while len(left) > 0:
-            # Laagste twee van links naar rechts:
+            # Two lowest from left to right side:
             if len(left) == 0:
                 break
             highest = 0
@@ -46,19 +46,19 @@ else:       # n > 2
                 switch.append(min(left))
                 left.remove(min(left))
             moves += highest
-            print(left, ">", right)
-
-            # print(moves)
+            print(sorted(left), ">", sorted(right), "-", highest, "minutes")
             switch = []
-            # Laagste van rechts naar links:
+
+            # Lowest from right to left side:
             if len(left) == 0:
                 break
             moves += min(right)
+            lowest = min(right)
             left.append(min(right))
             right.remove(min(right))
+            print(sorted(left), "<", sorted(right), "-", lowest, "minutes")
 
-            print(left, "<", right)
-            # Hoogste twee van links naar rechts:
+            # Two highest from left to right side:
             if len(left) == 0:
                 break
             highest = 0
@@ -68,16 +68,16 @@ else:       # n > 2
                 right.append(max(left))
                 left.remove(max(left))
             moves += highest
-            print(left, ">", right)
-            # print(moves)
+            print(sorted(left), ">", sorted(right), "-", highest, "minutes")
 
-            # Laagste van rechts naar links:
+            # Lowest from right to left:
             if len(left) == 0:
                 break
             moves += min(right)
+            lowest = min(right)
             left.append(min(right))
             right.remove(min(right))
-            # print(left, right)
+            print(sorted(left), "<", sorted(right), "-", lowest, "minutes")
         print("Total time: {} minutes".format(moves))
     except ValueError:
         pass
