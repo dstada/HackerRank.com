@@ -13,6 +13,7 @@ def crosswordPuzzle(crossword, words):
         print(woorden[i])
 
     # Horizontale woordvakken bepalen:
+    print("Horizontal:")
     for i in range(len(crossword)):
         # print(crossword[i])
         temp = []
@@ -27,6 +28,7 @@ def crosswordPuzzle(crossword, words):
     print(vakken)
 
     # Verticale woordvakken bepalen:
+    print("Vertical:")
     for k in range(0,10):   # Voor elke kolom
         temp2 = []
         word = 0
