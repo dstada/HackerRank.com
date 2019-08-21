@@ -12,7 +12,7 @@ Print the number of handshakes for each test-case in a new line.
 
 
 def handshake(n):
-    shakes = int((n * (n-1)) /2)
+    shakes = int((n * (n - 1)) / 2)
     return shakes
 
 if __name__ == '__main__':
