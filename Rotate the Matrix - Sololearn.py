@@ -13,25 +13,31 @@ Output:
 8  5  2
 9  6  3
 """
+def print_matrix(inpt, max):     # Prints the matrix nicely
+    for k in range(n):
+        s = ""
+        for l in range(n):
+            s += " " + " " * (max - len(str(inpt[k][l]))) + str(inpt[k][l])
+        print(s)
+
 # Build the original matrix:
 n = int(input("Matrix height/width: "))
-
+# Generate unrotated list:
 lst = [[(i + j) for i in range(n)] for j in range(1, n * n, n)]
 
-for y in range(n):
-    print(lst[y])
-
-print(lst)
-
-# Rotate clockwise 90 degrees:
+# Find out longest number:
+max_len = 0
+for x in range(n):
+    for y in range(n):
+        if len(str(lst[x][y])) > max_len:
+            max_len = len(str(lst[x][y]))
+print_matrix(lst, max_len)
+# Rotate 90 degrees clockwise:
 new_matrix = []
 for j in range(n):
     temp = []
     for i in reversed(range(n)):
-    # print(i) # van hoogste naar laagste
-        print(i, j)
         temp.append(lst[i][j])
-    print(temp)
     new_matrix.append(temp)
-
-print(new_matrix)
+print(20 * "-")
+print_matrix(new_matrix, max_len)
