@@ -1,10 +1,8 @@
 def bomberMan(n, grid):
     print(n, grid, len(grid))
     print("-------------")
-    gridnew = len(grid) * [len(grid) * "0"]
+    gridnew = len(grid) * [len(grid) * "O"]
     print(gridnew)
-
-    # Van 0 naar 3:
 
     if n % 2 == 0:
         gridnew = n * [n * "0"]
