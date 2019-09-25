@@ -1,11 +1,11 @@
 def bomberMan(n, grid):
     print(n, grid, len(grid))
     print("-------------")
-    gridnew = len(grid) * [len(grid) * "O"]
-    print(gridnew)
+    # gridnew = len(grid) * [len(grid[0]) * "O"]
+    # print(gridnew)
 
     if n % 2 == 0:
-        gridnew = n * [n * "0"]
+        gridnew = len(grid) * [len(grid[0]) * "O"]
         return gridnew          # Every even s the grid is filled
 
     if n == 1:      # After 1 s is the situation the same as in s=0
