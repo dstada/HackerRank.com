@@ -1,19 +1,19 @@
 def bomberMan(n, grid):
     print(n, grid, len(grid))
     print("-------------")
-    # gridnew = len(grid) * [len(grid[0]) * "O"]
-    # print(gridnew)
 
-    if n % 2 == 0:
+    if n % 2 == 0:     # Every even s the grid is filled
         gridnew = len(grid) * [len(grid[0]) * "O"]
-        return gridnew          # Every even s the grid is filled
+        return gridnew
 
     if n == 1:      # After 1 s is the situation the same as in s=0
         return grid
-    """
-    if (n%4==3) return set2;
-    return set3;
-    """
+
+    if n % 4 == 3:
+        return set2
+
+    return set3
+
 
 if __name__ == '__main__':
     rcn = input().split()
@@ -79,4 +79,6 @@ Output:
 ..OOOO.
 OOOOOOO
 OOOOOOO
+
+https://www.hackerrank.com/challenges/bomber-man/problem
 """
