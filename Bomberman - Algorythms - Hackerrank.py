@@ -1,18 +1,37 @@
 def bomberMan(n, grid):
-    print(n, grid, len(grid))
-    print("-------------")
+    print(grid)
 
     if n % 2 == 0:     # Every even s the grid is filled
-        gridnew = len(grid) * [len(grid[0]) * "O"]
-        return gridnew
+        grid2 = len(grid) * [len(grid[0]) * "O"]
+        return grid2
 
-    if n == 1:      # After 1 s is the situation the same as in s=0
-        return grid
+    if n == 1:          # After 1 s is the situation the same as in s=0
+        return grid     # Return the same grid as the input grid
 
-    if n % 4 == 3:
-        return set2
+    if n % 4 == 3:      # s = 3, 7, 11, 15, etc. After detonation of the bombs.
+        grid3 = []
+        for i in range(len(grid)):
+            print("Rij {}".format(i))
+            print(grid[i])
+            rule = ""
+            for j in range(len(grid[0])):
+                if grid[i][j] == "O":
+                    rule += "."
+                elif j > 0:
+                    if grid[i][j - 1] == "O":   # Left of it is a bomb
+                        rule += "."
+                # elif grid[i][j + 1] == 'O' and j + 1 <= len(grid[0]):  # Right of it is a bomb
+                        rule += "."
+                # # elif grid[i - 1][j] == 'O':  # Above of it is a bomb
+                # #         rule += "."
+                # # elif grid[i + 1][j] == 'O':  # Below is a bomb
+                # #         rule += "."
+                else:
+                    rule += "O"
+            print(rule)
+        # return grid3
 
-    return set3
+    # return set3     # s = 5, 9, 13, 17, enz
 
 
 if __name__ == '__main__':
