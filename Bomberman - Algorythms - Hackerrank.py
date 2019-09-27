@@ -15,21 +15,22 @@ def bomberMan(n, grid):
             print(grid[i])
             rule = ""
             for j in range(len(grid[0])):
-                if grid[i][j] == "O":
+                if grid[i][j] == "O":                   # Here is a bomb
                     rule += "."
-                elif j > 0:
-                    if grid[i][j - 1] == "O":   # Left of it is a bomb
-                        rule += "."
-                # elif grid[i][j + 1] == 'O' and j + 1 <= len(grid[0]):  # Right of it is a bomb
-                        rule += "."
-                # # elif grid[i - 1][j] == 'O':  # Above of it is a bomb
-                # #         rule += "."
-                # # elif grid[i + 1][j] == 'O':  # Below is a bomb
-                # #         rule += "."
+                elif j > 0 and grid[i][j-1] == "O":     # Left of it is a bomb
+                    rule += "."
+                elif j < len(grid[0]) - 1 and grid[i][j+1] == "O":   # Right is a bomb
+                    rule += "."
+                elif i > 0 and grid[i-1][j] == "O":     # Above is a bomb
+                    rule += "."
+                elif i < len(grid) - 1 and grid[i + 1][j] == "O":   # Beneath it is a bomb
+                    rule += "."
                 else:
                     rule += "O"
             print(rule)
-        # return grid3
+            grid3.append(rule)
+        print(grid3)
+        return grid3
 
     # return set3     # s = 5, 9, 13, 17, enz
 
