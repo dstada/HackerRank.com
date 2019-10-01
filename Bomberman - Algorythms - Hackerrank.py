@@ -33,7 +33,7 @@ def bomberMan(n, grid):
         return grid     # Return the same grid as the input grid
 
     if n % 4 == 3:      # s = 3, 7, 11, 15, etc. After detonation of the bombs.
-        grid4 = detonation(detonation(grid))
+        grid4 = detonation(grid)
         return grid4
 
     print("Kennelijk is n nu 5, 9, 13, enz")
