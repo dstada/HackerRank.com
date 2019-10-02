@@ -1,5 +1,8 @@
 def twoPluses(grid):
     print(grid)
+    for i in range(1, len(grid)-1):
+        for j in range(1, len(grid[0])-1):
+            print(str(grid[i][j]))
 
 
 if __name__ == '__main__':
