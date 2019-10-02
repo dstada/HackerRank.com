@@ -11,6 +11,7 @@ def twoPluses(grid):
 
             print(i, (len(grid[0])-i)-1)
             print(j, (len(grid)-int(j))-1)
+            print(min(i, (len(grid[0])-i)-1))
 
 
 if __name__ == '__main__':
