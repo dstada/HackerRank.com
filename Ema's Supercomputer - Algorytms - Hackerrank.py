@@ -7,8 +7,10 @@ def twoPluses(grid):
             # Bepaal hoeveel max. mogelijk is:
             # Kijk hoevel vakjes max.breed tot foute cel
             # Bepaal hoeveel max. mogelijk is.
-            print(i-1)
-            print(j-1)
+            print(i, j)
+
+            print(i, (len(grid[0])-i)-1)
+            print(j, (len(grid)-int(j))-1)
 
 
 if __name__ == '__main__':
