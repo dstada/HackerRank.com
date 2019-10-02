@@ -3,6 +3,12 @@ def twoPluses(grid):
     for i in range(1, len(grid)-1):
         for j in range(1, len(grid[0])-1):
             print(str(grid[i][j]))
+            # Kijk hoevel vakjes max.breed tot foute cel
+            # Bepaal hoeveel max. mogelijk is:
+            # Kijk hoevel vakjes max.breed tot foute cel
+            # Bepaal hoeveel max. mogelijk is.
+            print(i-1)
+            print(j-1)
 
 
 if __name__ == '__main__':
