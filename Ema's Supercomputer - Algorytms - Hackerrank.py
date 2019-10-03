@@ -1,17 +1,24 @@
 def twoPluses(grid):
     print(grid)
+    plusses = []
     for i in range(1, len(grid)-1):
         for j in range(1, len(grid[0])-1):
             print(str(grid[i][j]))
-            # Kijk hoevel vakjes max.breed tot foute cel
-            # Bepaal hoeveel max. mogelijk is:
-            # Kijk hoevel vakjes max.breed tot foute cel
-            # Bepaal hoeveel max. mogelijk is.
-            print(i, j)
+            print(i,",",j)
+            # Bepaal hoe groot de plus maximaal kan zijn:
+            min_abov_undr = min((len(grid)-int(i)-1), i)
+            min_left_right = min(j, (len(grid[0])-int(j))-1)
+            maximum = min(min_abov_undr,min_left_right)
+            print("Plus kan maximaal {} cel(len) rond centrale cel groot zijn".format(maximum))
+            if grid[i][j] == "B":
+                print("Foute cel...")
+            else:
+                print("Dit is een goede cel.")
+            print("-----------------------------")
 
-            print(i, (len(grid[0])-i)-1)
-            print(j, (len(grid)-int(j))-1)
-            print(min(i, (len(grid[0])-i)-1))
+            # for k in range(1, maximum):
+            #     if grid[i][j-k] == "B":
+            #         print("Links is BAD")
 
 
 if __name__ == '__main__':
