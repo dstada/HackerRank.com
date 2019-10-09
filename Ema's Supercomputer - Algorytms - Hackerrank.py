@@ -1,10 +1,10 @@
 
 
 def twoPluses(grid):
-    print(grid)
     max_area = 1
     for i in range(1, len(grid)-1):         # Elk cel langs die niet aan de rand zit
         for j in range(1, len(grid[0])-1):
+            grid_new = grid
             if grid[i][j] == "G":
                 # Bepaal voor deze cel de grootte van de plus
                 print(str(grid[i][j]))
@@ -18,11 +18,18 @@ def twoPluses(grid):
                 for max in range(1, maximum+1):     # Hoe groot is de maximale plus
                     if grid[i-max][j] == "G" and grid[i+max][j] == "G" and grid[i][j-max] == "G" and grid[i][j+max] == "G":
                         print("Extra cel!")
-                        # grid[0] = grid[0][:1] + 'X' + grid[0][2:]
+                        # De G's veranderen in B's:
+                        grid_new[i-max] = grid_new[i-max][:j] + "B" + grid_new[i-max][j+1:]    # cel boven bewuste cel
+                        grid_new[i+max] = grid_new[i+max][:j] + "B" + grid_new[i-max][j+1:]  # cel onder bewuste cel
+                        grid_new[i] = grid_new[i][:j] + "B" + grid_new[i][j+1:]   # de cel zelf (is dat wel nodig?)
+                        grid_new[i] = grid_new[i][:j - max] + "B" + grid_new[i][j - max + 1:]  # cel links
+                        grid_new[i] = grid_new[i][:j + max] + "B" + grid_new[i][j + max + 1:]  # cel links
+                        grid_new[i] = grid_new[i][:j - max] + "B" + grid_new[i][j - max + 1:]  # cel rechts
                         plusgrootte += 1
                         area = (4 * plusgrootte) + 1
                     else:
                         break
+                print(grid_new)
                 # print("plusgrootte: {}".format(plusgrootte))
                 print("area voor deze cel: {}".format(area))
                 if area > max_area:
@@ -34,8 +41,7 @@ def twoPluses(grid):
                 # Nu opnieuw de grootste area berekenen
                 # eerste area * nieuwe grootste area onthouden.
                 # Als dat bij een volgende cel groter is, wordt dat het nieuwe totaal.
-
-                print("-----------------------------")
+            print("-----------------------------")
 
 
     print("max_area: {}".format(max_area))
