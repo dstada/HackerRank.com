@@ -23,15 +23,13 @@ def twoPluses(grid):
                         grid_new[i+max] = grid_new[i+max][:j] + "B" + grid_new[i-max][j+1:]  # cel onder bewuste cel
                         grid_new[i] = grid_new[i][:j] + "B" + grid_new[i][j+1:]   # de cel zelf (is dat wel nodig?)
                         grid_new[i] = grid_new[i][:j - max] + "B" + grid_new[i][j - max + 1:]  # cel links
-                        grid_new[i] = grid_new[i][:j + max] + "B" + grid_new[i][j + max + 1:]  # cel links
                         grid_new[i] = grid_new[i][:j - max] + "B" + grid_new[i][j - max + 1:]  # cel rechts
                         plusgrootte += 1
                         area = (4 * plusgrootte) + 1
                     else:
                         break
+                print("Bij deze plus is de area: {}".format(area))
                 print(grid_new)
-                # print("plusgrootte: {}".format(plusgrootte))
-                print("area voor deze cel: {}".format(area))
                 if area > max_area:
                     max_area = area
                 # Nu een nieuw grid maken met huidige plus als "D" in de cellen:
