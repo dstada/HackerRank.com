@@ -11,9 +11,9 @@ GGGGGG
 def twoPluses(grid):
     if not any("G" in rule for rule in grid):   # if no G's in the grid, return 0
         return 0
-    # max_area = 1
     for i in range(1, len(grid)-1):         # Elk cel langs die niet aan de rand zit
         for j in range(1, len(grid[0])-1):
+            maximum = 0
             grid_new = grid.copy()
             if grid[i][j] == "G":
                 print("Grid: {}".format(grid))
@@ -26,26 +26,26 @@ def twoPluses(grid):
                 maximum = min(min_abov_undr, min_left_right)        # Plus kan maximaal [maximum] groot zijn.
                 plusgrootte = 0
                 area = 0
-                print(grid_new[i])
                 for max in range(1, maximum+1):     # Hoe groot is de maximale plus
                     if grid[i-max][j] == "G" and grid[i+max][j] == "G" and grid[i][j-max] == "G" and grid[i][j+max] == "G":
+                        print("Rondom allemaal G's")
                         # De G's veranderen in B's:
                         grid_new[i-max] = grid_new[i-max][:j] + "B" + grid_new[i-max][j+1:]    # cel boven bewuste cel
-                        grid_new[i+max] = grid_new[i+max][:j] + "B" + grid_new[i-max][j+1:]    # cel onder bewuste cel
+                        grid_new[i+max] = grid_new[i+max][:j] + "B" + grid_new[i+max][j+1:]    # cel onder bewuste cel
                         grid_new[i] = grid_new[i][:j - max] + "B" + grid_new[i][j - max + 1:]  # cel links
                         grid_new[i] = grid_new[i][:j + max] + "B" + grid_new[i][j + max + 1:]  # cel rechts
-                        plusgrootte += 1
-                        area = (4 * plusgrootte) + 1
+                #         plusgrootte += 1
+                #         area = (4 * plusgrootte) + 1
                     else:
                         break                     # Stoppen want maximale plus bereikt
-                print("Bij deze plus is de area: {}".format(area))
+                # print("Bij deze plus is de area: {}".format(area))
                 print("gr_n: {}".format(grid_new))
 
                 # Met het nieuwe grid waar de plus op de cel gemarkeerd is als "B", opnieuw de grootste plus zoeken:
-                for i in range(1, len(grid_new) - 1):  # Elk cel langs die niet aan de rand zit
-                    for j in range(1, len(grid_new[0]) - 1):
-                        if grid_new[i][j] == "G":
-                            print(grid_new[i][j])
+                # for i in range(1, len(grid_new) - 1):  # Elk cel langs die niet aan de rand zit
+                #     for j in range(1, len(grid_new[0]) - 1):
+                #         if grid_new[i][j] == "G":
+                #             print(grid_new[i][j])
 
 
                 # Bereken area eerste keer tweede area
