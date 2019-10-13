@@ -34,18 +34,18 @@ def twoPluses(grid):
                         grid_new[i+max] = grid_new[i+max][:j] + "B" + grid_new[i+max][j+1:]    # cel onder bewuste cel
                         grid_new[i] = grid_new[i][:j - max] + "B" + grid_new[i][j - max + 1:]  # cel links
                         grid_new[i] = grid_new[i][:j + max] + "B" + grid_new[i][j + max + 1:]  # cel rechts
-                #         plusgrootte += 1
-                #         area = (4 * plusgrootte) + 1
+                        plusgrootte += 1
+                        area = (4 * plusgrootte) + 1
                     else:
                         break                     # Stoppen want maximale plus bereikt
-                # print("Bij deze plus is de area: {}".format(area))
+                print("Bij deze plus is de area: {}".format(area))
                 print("gr_n: {}".format(grid_new))
 
-                # Met het nieuwe grid waar de plus op de cel gemarkeerd is als "B", opnieuw de grootste plus zoeken:
-                # for i in range(1, len(grid_new) - 1):  # Elk cel langs die niet aan de rand zit
-                #     for j in range(1, len(grid_new[0]) - 1):
-                #         if grid_new[i][j] == "G":
-                #             print(grid_new[i][j])
+                # Met het nieuwe grid waar de plus op de cel gemarkeerd is als B's, opnieuw de grootste plus zoeken:
+                for i in range(1, len(grid_new) - 1):  # Elk cel langs die niet aan de rand zit
+                    for j in range(1, len(grid_new[0]) - 1):
+                        if grid_new[i][j] == "G":
+                            print(i, "-",j)
 
 
                 # Bereken area eerste keer tweede area
