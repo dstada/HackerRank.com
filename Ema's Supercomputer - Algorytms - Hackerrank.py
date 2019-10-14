@@ -9,6 +9,7 @@ GGGGGG
 """
 
 def twoPluses(grid):
+    max_area = 0
     if not any("G" in rule for rule in grid):   # if no G's in the grid, return 0
         return 0
     for i in range(1, len(grid)-1):         # Elk cel langs die niet aan de rand zit
@@ -16,7 +17,7 @@ def twoPluses(grid):
             maximum = 0
             grid_new = grid.copy()
             if grid[i][j] == "G":
-                print("Grid: {}".format(grid))
+                area = 1            # Een g, dus area altijd minimaal 1
                 grid_new[i] = grid_new[i][:j] + "B" + grid_new[i][j + 1:]   # De cel zelf van G naar B
                 # Bepaal voor deze cel de grootte van de plus
                 print(i, "-", j)
@@ -25,8 +26,7 @@ def twoPluses(grid):
                 min_left_right = min(j, (len(grid[0])-int(j))-1)
                 maximum = min(min_abov_undr, min_left_right)        # Plus kan maximaal [maximum] groot zijn.
                 plusgrootte = 0
-                area = 0
-                for max in range(1, maximum+1):     # Hoe groot is de maximale plus
+                for max in range(1, maximum+1):     # Hoe groot is de plus daadwerkelijk:
                     if grid[i-max][j] == "G" and grid[i+max][j] == "G" and grid[i][j-max] == "G" and grid[i][j+max] == "G":
                         print("Rondom allemaal G's")
                         # De G's veranderen in B's:
@@ -42,19 +42,31 @@ def twoPluses(grid):
                 print("gr_n: {}".format(grid_new))
 
                 # Met het nieuwe grid waar de plus op de cel gemarkeerd is als B's, opnieuw de grootste plus zoeken:
-                for i in range(1, len(grid_new) - 1):  # Elk cel langs die niet aan de rand zit
-                    for j in range(1, len(grid_new[0]) - 1):
-                        if grid_new[i][j] == "G":
-                            print(i, "-",j)
-
-
-                # Bereken area eerste keer tweede area
-
-                # if area > max_area:
-                #     max_area = area
+                for k in range(1, len(grid_new) - 1):  # Elk cel langs die niet aan de rand zit
+                    for l in range(1, len(grid_new[0]) - 1):
+                        if grid_new[k][l] == "G":
+                            print(k, "-", l)
+                            area_new = 1
+                            # Bepaal hoe groot deze plus maximaal kan zijn (theoretische plusgrootte):
+                            min_abov_undr = min((len(grid) - int(k) - 1), k)
+                            min_left_right = min(l, (len(grid[0]) - int(l)) - 1)
+                            maximum = min(min_abov_undr, min_left_right)  # Plus kan maximaal [maximum] groot zijn.
+                            print("Max.grootte is: {}".format(maximum))
+                            plusgrootte = 0
+                            for max in range(1, maximum + 1):  # Hoe groot is deze plus daadwerkelijk:
+                                if grid_new[k - max][l] == "G" and grid_new[k + max][l] == "G" and grid_new[k][l - max] == "G" and \
+                                        grid_new[k][l + max] == "G":
+                                    print("Rondom allemaal G's")
+                                    plusgrootte += 1
+                                    area_new = (4 * plusgrootte) + 1
+                                else:
+                                    break
+                            # Bereken area eerste keer tweede area
+                            if area * area_new > max_area:
+                                max_area = area * area_new
 
                 print("-----------------------------")
-    # print("max_area: {}".format(max_area))
+    print("max_area: {}".format(max_area))
 
 # TODO: Als er alleen G's in de randcellen zitten: check of er 2 G's in zitten. Return is dan 1
 """
