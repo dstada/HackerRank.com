@@ -1,5 +1,4 @@
 
-
 def matrixRotation(matrix, r):
     print(matrix)
     regels = len(matrix)
@@ -45,6 +44,16 @@ def matrixRotation(matrix, r):
     schil2.append(schil2.pop(0))
     print(schil2)
 
+    # Omzetten van de nieuwe schillen naar een nieuwe matrix:
+    schil1_def = []
+    # Eerste regel:
+    schil1_def.append(schil1[0:kolommen])
+    print(schil1_def)
+    # Tussenregels:
+    # 1e en laatste uit schil1, tussenin 1e regel van schil2
+    # Laatste regel
+    #
+
 
 if __name__ == '__main__':
     mnr = input().rstrip().split()
@@ -73,7 +82,6 @@ Output:
 2 11 10 16
 1 7 6 15
 5 9 13 14
-
 Input:
 5 4 7
 1 2 3 4
@@ -81,7 +89,6 @@ Input:
 13 14 15 16
 19 20 21 22
 25 26 27 28
-
 Output:
 28 27 26 25
 22 9 15 19
