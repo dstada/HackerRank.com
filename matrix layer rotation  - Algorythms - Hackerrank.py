@@ -24,7 +24,7 @@ def matrixRotation(matrix, r):
     schil1.append(schil1.pop(0))
     print(schil1)
 
-    # Binnenste (tweede) schil:
+    # Tweede schil:
     schil2 = []
     # Eerste regel toevoegen:
     for a in range(1, kolommen - 1):
@@ -44,7 +44,7 @@ def matrixRotation(matrix, r):
     schil2.append(schil2.pop(0))
     print(schil2)
 
-    # Omzetten van de nieuwe schillen naar een nieuwe matrix:
+    # Omzetten van de nieuwe schillen naar een nieuwe matrix (bij 2 schillen):
     schil1_def = []
     # Eerste regel:
     schil1_def.append(schil1[0:kolommen])
