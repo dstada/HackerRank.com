@@ -54,8 +54,9 @@ def matrixRotation(matrix, r):
     print("Aantal tussenregels: {}".format(regels - 2))
     # 1e en laatste uit schil1, tussenin 1e regel van schil2
     # Eerst de buitenste getallen links en rechts per regel:
-    for x in range(regels - 2):
-        pass
+    for x in range(1, regels - 1):
+        print(schil1[len(schil1) - x])
+        print(schil1[kolommen -1 + x])
     # Laatste regel
     print(schil1[kolommen+(regels-2):kolommen+(regels-2)+kolommen])
     schil1_def.append(schil1[kolommen+(regels-2):kolommen+(regels-2)+kolommen][::-1])
