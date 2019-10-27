@@ -57,7 +57,6 @@ def matrixRotation(matrix, r):
     for x in range(1, regels - 1):
         print(schil1[len(schil1) - x])
         print(schil1[kolommen -1 + x])
-
     # Laatste regel
     print(schil1[kolommen+(regels-2):kolommen+(regels-2)+kolommen])
     schil1_def.append(schil1[kolommen+(regels-2):kolommen+(regels-2)+kolommen][::-1])
