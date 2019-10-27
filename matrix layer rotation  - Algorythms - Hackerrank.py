@@ -63,6 +63,7 @@ def matrixRotation(matrix, r):
     print(schil1_def)
 
 
+
 if __name__ == '__main__':
     mnr = input().rstrip().split()
     m = int(mnr[0])
