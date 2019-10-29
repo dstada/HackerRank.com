@@ -1,10 +1,11 @@
 import math
 
+
 def matrixRotation(matrix, r):
     print(matrix)
     regels = len(matrix)
     kolommen = len(matrix[0])
-    schillen_n = math.ceil((min(regels, kolommen)/2))
+    print("Aantal schillen: {}".format(math.ceil((min(regels, kolommen) / 2))))
     # Buitenste schil:
     # Eerste regel toevoegen:
     schil1 = []
@@ -15,7 +16,7 @@ def matrixRotation(matrix, r):
         laatste = matrix[i][-1]
         schil1.append(laatste)
     # laatste regel omgekeerd toevoegen:
-    for q in matrix[regels-1][::-1]:
+    for q in matrix[regels - 1][::-1]:
         schil1.append(q)
     # eerste elementen van tussenregels toevoegen:
     for j in range(regels - 2, 0, -1):
@@ -55,22 +56,21 @@ def matrixRotation(matrix, r):
     # 1e en laatste uit schil1, tussenin 1e regel van schil2
     # Eerst de buitenste getallen links en rechts per regel:
     for x in range(1, regels - 1):
+        if x == 1:
+            print(x, "Eerste regel uit schil2")
+            print(schil2[0:kolommen - 2])
+        elif x == regels - 2:
+            print(x, "Laatste regel uit schil2")
+            print("Tussenregels schil2: {}".format((len(schil2) - 2 * (kolommen - 2))/2))
+        else:
+            print(x, "Tussenregel uit schil2")
         # Aan elkaar:
-        schil1_def.append([schil1[len(schil1) - x], schil1[kolommen -1 + x]])
-        if schillen_n > 1:
-            if x == 1:
-                print("Eerste regel van de 2e schil")
-            elif x == regels - 2:
-                print("Laatste regel schil2")
-            else:
-                print("Tussenregel van schil2")
+        schil1_def.append([schil1[len(schil1) - x], schil1[kolommen - 1 + x]])
+
     # Laatste regel
-    print(schil1[kolommen+(regels-2):kolommen+(regels-2)+kolommen])
-    schil1_def.append(schil1[kolommen+(regels-2):kolommen+(regels-2)+kolommen][::-1])
+    print(schil1[kolommen + (regels - 2):kolommen + (regels - 2) + kolommen])
+    schil1_def.append(schil1[kolommen + (regels - 2):kolommen + (regels - 2) + kolommen][::-1])
     print(schil1_def)
-
-    #  Nieuwe VERSIE
-
 
 
 if __name__ == '__main__':
@@ -84,8 +84,6 @@ if __name__ == '__main__':
         matrix.append(list(map(int, input().rstrip().split())))
 
     matrixRotation(matrix, r)
-
-
 
 """https://www.hackerrank.com/challenges/matrix-rotation-algo/problem
 Input:
@@ -107,15 +105,12 @@ Input:
 13 14 15 16
 19 20 21 22
 25 26 27 28
-
 Output:
 28 27 26 25
 22 9 15 19
 16 8 21 13
 10 14 20 7
 4 3 2 1
-
-
 
 4 4 1
  1  2  3  4
@@ -134,6 +129,5 @@ Output:
 11 12 13 14 15 
 16 17 18 19 20
 21 22 23 24 25
-
 
 """
