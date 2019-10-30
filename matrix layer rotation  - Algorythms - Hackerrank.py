@@ -55,15 +55,19 @@ def matrixRotation(matrix, r):
     print("Aantal tussenregels: {}".format(regels - 2))
     # 1e en laatste uit schil1, tussenin 1e regel van schil2
     # Eerst de buitenste getallen links en rechts per regel:
+    tussenrls = int((len(schil2) - 2 * (kolommen - 2)) / 2)
     for x in range(1, regels - 1):
         if x == 1:
             print(x, "Eerste regel uit schil2")
             print(schil2[0:kolommen - 2])
         elif x == regels - 2:
             print(x, "Laatste regel uit schil2")
-            print("Tussenregels schil2: {}".format((len(schil2) - 2 * (kolommen - 2))/2))
+            print(schil2[kolommen - 2 + tussenrls: kolommen -2 + tussenrls + kolommen - 2][::-1])
         else:
             print(x, "Tussenregel uit schil2")
+            # Eerste en laatste van tussenregel schil2:
+            print(schil2[len(schil2) - x + 1], schil2[kolommen - 2])
+
         # Aan elkaar:
         schil1_def.append([schil1[len(schil1) - x], schil1[kolommen - 1 + x]])
 
@@ -71,6 +75,7 @@ def matrixRotation(matrix, r):
     print(schil1[kolommen + (regels - 2):kolommen + (regels - 2) + kolommen])
     schil1_def.append(schil1[kolommen + (regels - 2):kolommen + (regels - 2) + kolommen][::-1])
     print(schil1_def)
+
 
 
 if __name__ == '__main__':
@@ -130,4 +135,10 @@ Output:
 16 17 18 19 20
 21 22 23 24 25
 
+output:
+2 3 4 5 10
+1 8 9 13 15
+6 7 13 19 20
+11 12 17 18 25
+16 21 22 23 24
 """
