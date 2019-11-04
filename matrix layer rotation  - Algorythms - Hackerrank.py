@@ -5,7 +5,8 @@ def matrixRotation(matrix, r):
     print(matrix)
     regels = len(matrix)
     kolommen = len(matrix[0])
-    print("Aantal schillen: {}".format(math.ceil((min(regels, kolommen) / 2))))
+    schillen_n = math.ceil((min(regels, kolommen) / 2))
+
     # Buitenste schil:
     # Eerste regel toevoegen:
     schil1 = []
@@ -62,7 +63,7 @@ def matrixRotation(matrix, r):
             print(schil2[0:kolommen - 2])
         elif x == regels - 2:
             print(x, "Laatste regel uit schil2")
-            print(schil2[kolommen - 2 + tussenrls: kolommen -2 + tussenrls + kolommen - 2][::-1])
+            print(schil2[kolommen - 2 + tussenrls: kolommen - 2 + tussenrls + kolommen - 2][::-1])
         else:
             print(x, "Tussenregel uit schil2")
             # Eerste en laatste van tussenregel schil2:
@@ -75,7 +76,6 @@ def matrixRotation(matrix, r):
     print(schil1[kolommen + (regels - 2):kolommen + (regels - 2) + kolommen])
     schil1_def.append(schil1[kolommen + (regels - 2):kolommen + (regels - 2) + kolommen][::-1])
     print(schil1_def)
-
 
 
 if __name__ == '__main__':
@@ -127,6 +127,21 @@ Output:
  1  7 11 12
  5  6 10 16
  9 13 14 15
+
+6 5 1
+1 2 3 4 5 6
+7 8 9 10 11 12
+13 14 15 16 17
+18 19 20 21 22
+23 24 25 26 27
+
+2  3  4  5  6  12
+1  9  10 11 17 18
+7  8  16 15 23 24
+13 14 20 21 22 30
+19 25 26 27 28 29
+
+
 
 5 5 1
 1 2 3 4 5
