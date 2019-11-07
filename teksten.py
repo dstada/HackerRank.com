@@ -1,16 +1,12 @@
 inputFileText = open("C:/Users/Dick Stada/Downloads/OpenTaal-210G-woordenlijsten/OpenTaal-210G-basis-gekeurd.txt", "r").read()
 # print (inputFileText)   # de hele inhoud printen
-if "ontnieter" in inputFileText:
-    print("!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!")
 
-for line in open("C:/Users/Dick Stada/Downloads/OpenTaal-210G-woordenlijsten/OpenTaal-210G-basis-gekeurd.txt", "r").readlines():
+# for line in open("C:/Users/Dick Stada/Downloads/OpenTaal-210G-woordenlijsten/OpenTaal-210G-basis-gekeurd.txt", "r").readlines():
 # for line in open("C:/Users/Dick Stada/Downloads/OpenTaal-210G-woordenlijsten/OpenTaal-210G-basis-ongekeurd.txt", "r").readlines():
 # for line in open("C:/Users/Dick Stada/Downloads/OpenTaal-210G-woordenlijsten/OpenTaal-210G-verwarrend.txt", "r").readlines():
-# for line in open("C:/Users/Dick Stada/Downloads/OpenTaal-210G-woordenlijsten/OpenTaal-210G-flexievormen.txt", "r").readlines():
-#                      "r").readlines():
+for line in open("C:/Users/Dick Stada/Downloads/OpenTaal-210G-woordenlijsten/OpenTaal-210G-flexievormen.txt", "r").readlines():
 #     print(line.strip())
 #     print(len(line))
-    line = line.strip()
 
     if len(line) == 9:
         # print(line)
