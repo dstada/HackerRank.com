@@ -6,7 +6,18 @@ def matrixRotation(matrix, r):
     regels = len(matrix)
     kolommen = len(matrix[0])
     schillen_n = math.ceil((min(regels, kolommen) / 2))
+    schillen = []
+    # Bijv. matrix = [[1, 2, 3, 4], [5, 6, 7, 8], [9, 10, 11, 12], [13, 14, 15, 16]]
+    for i in range(schillen_n):     # Dit voor elke schil doen:
+        # Eerste regel:
+        # schillen.append(matrix[i][])
+        schil_top = []
+        for a in range(i, kolommen - i):
+            schil_top.append(matrix[i][a])
+        schillen.append(schil_top)
+    print("schillen: {}".format(schillen))
 
+    # TOEVOEGEN
     # Buitenste schil:
     # Eerste regel toevoegen:
     schil1 = []
@@ -47,6 +58,7 @@ def matrixRotation(matrix, r):
     schil2.append(schil2.pop(0))
     print(schil2)
 
+    # NIEUWE MATRIX MAKEN:
     # Omzetten van de nieuwe schillen naar een nieuwe matrix (bij 2 schillen):
     schil1_def = []
     # Eerste regel:
