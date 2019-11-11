@@ -11,15 +11,16 @@ def matrixRotation(matrix, r):
     for i in range(schillen_n):  # Dit voor elke schil doen:
         # Eerste regel:
         # schillen.append(matrix[i][])
-        schil_top = []
+        schil_top = []      # Bovenkant
         for a in range(i, kolommen - i):
             schil_top.append(matrix[i][a])
-        schil_bottom = []
+
+        schil_rechts = []       # Rechts
+
+
+        schil_bottom = []       # Onderkant
         for q in range(regels - i, i , -1):
-            print(q)
-            print(matrix[q - 1][kolommen - 1 - i])
-            # schil_bottom.append(matrix[regels - i][q])
-            # print("SB:".format(schil_bottom))
+            schil_bottom.append(matrix[q - 1][kolommen - 1 - i])
 
         schillen.append(schil_top)
     print("schillen: {}".format(schillen))
