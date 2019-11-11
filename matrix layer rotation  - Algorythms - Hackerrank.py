@@ -8,12 +8,19 @@ def matrixRotation(matrix, r):
     schillen_n = math.ceil((min(regels, kolommen) / 2))
     schillen = []
     # Bijv. matrix = [[1, 2, 3, 4], [5, 6, 7, 8], [9, 10, 11, 12], [13, 14, 15, 16]]
-    for i in range(schillen_n):     # Dit voor elke schil doen:
+    for i in range(schillen_n):  # Dit voor elke schil doen:
         # Eerste regel:
         # schillen.append(matrix[i][])
         schil_top = []
         for a in range(i, kolommen - i):
             schil_top.append(matrix[i][a])
+        schil_bottom = []
+        for q in range(regels - i, i , -1):
+            print(q)
+            print(matrix[q - 1][kolommen - 1 - i])
+            # schil_bottom.append(matrix[regels - i][q])
+            # print("SB:".format(schil_bottom))
+
         schillen.append(schil_top)
     print("schillen: {}".format(schillen))
 
@@ -115,6 +122,7 @@ Output:
 2 11 10 16
 1 7 6 15
 5 9 13 14
+
 Input:
 5 4 7
 1 2 3 4
@@ -122,6 +130,7 @@ Input:
 13 14 15 16
 19 20 21 22
 25 26 27 28
+
 Output:
 28 27 26 25
 22 9 15 19
@@ -147,14 +156,11 @@ Output:
 19 20 21 22 23 24
 25 26 27 28 29 30
 
-
 2  3  4  5  6  12
 1  9  10 11 17 18
 7  8  16 15 23 24
 13 14 20 21 22 30
 19 25 26 27 28 29
-
-
 
 5 5 1
 1 2 3 4 5
@@ -169,4 +175,5 @@ output:
 6 7 13 19 20
 11 12 17 18 25
 16 21 22 23 24
+
 """
