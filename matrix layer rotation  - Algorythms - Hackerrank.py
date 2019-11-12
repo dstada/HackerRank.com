@@ -11,20 +11,40 @@ def matrixRotation(matrix, r):
     for i in range(schillen_n):  # Dit voor elke schil doen:
         # Eerste regel:
         # schillen.append(matrix[i][])
-        schil_top = []      # Bovenkant
+        schil_top = []  # Bovenkant
         for a in range(i, kolommen - i):
             schil_top.append(matrix[i][a])
+        print("schil_top: {}".format(schil_top))
 
-        schil_rechts = []       # Rechts
+        schil_rechts = []  # Rechts
+        for j in range(1 + i, regels - 1 - i):
+            # print("nu in regel {}".format(j))
+            # print("rechts nu: {}".format(matrix[j][kolommen - i - 1]))
+            schil_rechts.append(matrix[j][kolommen - 1 - i])
+        print("schil_rechts: {}".format(schil_rechts))
 
+        # Onderste regel. Eerst check of er meerdere regels zijn:
+        # check of er meerdere regels zijn.
+        schil_bottom = []  # Onderkant
+        for q in range(kolommen - i, i, -1):
+            # print("kolom: {}".format(q))
+            # print("regel {}".format(regels - i - 1))
+            # print(matrix[regels - i - 1][q - 1])
+            schil_bottom.append(matrix[regels - i - 1][q - 1])
+        print("schil_bottom: {}".format(schil_bottom))
 
-        schil_bottom = []       # Onderkant
-        for q in range(regels - i, i , -1):
-            schil_bottom.append(matrix[q - 1][kolommen - 1 - i])
+        schil_links = []  # links
+        for k in range(regels - 1 - i, 1 + i, -1):
+            # print("nu in regel {}".format(k))
+            # print(matrix[k-1][0 + i])
+            # print("links nu: {}".format(matrix[j][kolommen - i - 1]))
+            schil_links.append(matrix[k-1][0 + i])
+        print("schil_links: {}".format(schil_links))
 
-        schillen.append(schil_top)
-    print("schillen: {}".format(schillen))
+        # schillen.append(schil_top)
+    # print("schillen: {}".format(schillen))
 
+    print("######################################")
     # TOEVOEGEN
     # Buitenste schil:
     # Eerste regel toevoegen:
