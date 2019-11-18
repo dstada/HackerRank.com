@@ -34,27 +34,29 @@ def matrixRotation(matrix, r):
 
     # Roteren:
     schillen_rotated = []
+    print("r: {}".format(r))
     for schil in schillen:
-        schil.append(schil.pop(0))
+        for keer in range(r):
+            schil.append(schil.pop(0))
         schillen_rotated.append(schil)
-    print(schillen_rotated)
+    print("Rotated: {}".format(schillen_rotated))
 
     # Nieuwe matrix maken:
     matrix_def = []
     # Eerste regel altijd uit schil 0:
     matrix_def.append(schillen[0][0:kolommen])
     print(matrix_def)
+
+    # Tussenregels:
+    for q in range(regels - 2):
+        print(schillen_rotated[0][-1 - q], schillen_rotated[0][kolommen + q])
+
     # Laatste regel, uit schil 0:
     start = -(kolommen + regels - 2)
-    print("Start: {}".format(start))
     end = -(regels - 2)
-    print("end: {}".format(end))
     tussen = schillen_rotated[0][start:end]
     print(tussen[::-1])
-    # matrix_def.append(schillen_rotated[0][start:end][::-1])
-    # print(matrix_def)
 
-    print("######################################")
     #
     # # NIEUWE MATRIX MAKEN:
     # # Omzetten van de nieuwe schillen naar een nieuwe matrix (bij 2 schillen):
@@ -109,10 +111,10 @@ Input:
 13 14 15 16
 
 Output:
-3 4 8 12
+3  4  8 12
 2 11 10 16
-1 7 6 15
-5 9 13 14
+1  7  6 15
+5  9 13 14
 
 Input:
 5 4 7
@@ -147,21 +149,5 @@ Output:
 19 20 21 22 23 24
 25 26 27 28 29 30
 31 32 33 34 35 36
-
-
-kan niet:
-5 5 1
-1 2 3 4 5
-6 7 8 9 10
-11 12 13 14 15 
-16 17 18 19 20
-21 22 23 24 25
-
-output:
-2 3 4 5 10
-1 8 9 13 15
-6 7 13 19 20
-11 12 17 18 25
-16 21 22 23 24
 
 """
