@@ -41,21 +41,31 @@ def matrixRotation(matrix, r):
         schillen_rotated.append(schil)
     print("Rotated: {}".format(schillen_rotated))
 
-    # Nieuwe matrix maken:
-    matrix_def = []
-    # Eerste regel altijd uit schil 0:
-    matrix_def.append(schillen[0][0:kolommen])
+    # # Nieuwe matrix maken:
+    # matrix_def = []
+    # # Eerste regel altijd uit schil 0:
+    # matrix_def.append(schillen[0][0:kolommen])
+    # print(matrix_def)
+    #
+    # # Tussenregels:
+    # for q in range(regels - 2):
+    #     print(schillen_rotated[0][-1 - q], schillen_rotated[0][kolommen + q])
+    #
+    # # Laatste regel, uit schil 0:
+    # start = -(kolommen + regels - 2)
+    # end = -(regels - 2)
+    # tussen = schillen_rotated[0][start:end]
+    # print(tussen[::-1])
+
+    # Lege matrix maken:
+    matrix_def = [[] for x in range(regels)]
     print(matrix_def)
+    print(regels)
+    print(regels/2)
+    for r in range(int(regels / 2)):
+        print("regel {}".format(r))
 
-    # Tussenregels:
-    for q in range(regels - 2):
-        print(schillen_rotated[0][-1 - q], schillen_rotated[0][kolommen + q])
 
-    # Laatste regel, uit schil 0:
-    start = -(kolommen + regels - 2)
-    end = -(regels - 2)
-    tussen = schillen_rotated[0][start:end]
-    print(tussen[::-1])
 
     #
     # # NIEUWE MATRIX MAKEN:
